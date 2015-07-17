@@ -16,8 +16,8 @@ Name nvarchar(50) not null
 create table Categories (
 Id int primary key identity,
 Name nvarchar(100) not null,
-SubCategoryId int null,
-constraint FK_Id_SubcategoryId foreign key(SubCategoryId) references  Categories(Id)
+ParentCategoryId int null,
+constraint FK_Id_ParentCategoryId foreign key(ParentCategoryId) references  Categories(Id)
 )
 go
 
