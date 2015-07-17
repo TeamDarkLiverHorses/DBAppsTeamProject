@@ -1,0 +1,9 @@
+INSERT INTO PRODUCTS (NAME, PRICE, MEASURE_ID, VENDOR_ID, CATEGORY_ID)
+VALUES (
+'VAT 69',
+16.99,
+(select ID from measures where name = 'litres'),
+(select ID from vendors where name = 'Diageo'),
+(SELECT ID FROM CATEGORIES WHERE NAME = 'Whiskey')
+);
+
