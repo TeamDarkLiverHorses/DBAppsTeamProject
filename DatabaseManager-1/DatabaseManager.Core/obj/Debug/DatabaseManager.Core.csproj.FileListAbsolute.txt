@@ -1,0 +1,24 @@
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\DatabaseManager.Core.dll.config
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\DatabaseManager.Core.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\DatabaseManager.Core.pdb
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.xml
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.pdb
+D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.csprojResolveAssemblyReference.cache
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\DatabaseManager.Core.dll.config
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\DatabaseManager.Core.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\DatabaseManager.Core.pdb
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.xml
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.SqlServer.xml
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.pdb
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.csprojResolveAssemblyReference.cache
