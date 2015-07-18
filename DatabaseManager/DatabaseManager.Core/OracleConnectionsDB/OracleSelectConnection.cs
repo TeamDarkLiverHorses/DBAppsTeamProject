@@ -5,13 +5,14 @@
     using System.Configuration;
     using System.Data;
 
+    // TODO: OracleSelectConnection and OracleNotSelectConnection have similar logic and we must use OOP Inheritance :))
+
     public class OracleSelectConnection : IDisposable
     {
         private bool isDisposed = false;
-
-        OracleConnection connection;
-        OracleCommand command;
-        OracleDataAdapter dataAdapter;
+        private OracleConnection connection;
+        private OracleCommand command;
+        private OracleDataAdapter dataAdapter;
 
         string connectionString = ConfigurationManager.ConnectionStrings["MyDB"].ConnectionString;
 

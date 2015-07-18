@@ -1,4 +1,13 @@
-﻿namespace DatabaseManager.UI
+﻿/* Single class must not be used for:
+ * 1. Draw stuff on window
+ * 2. Do database insertions/deletions/updates
+ * 
+ * Two different logical actions? -> two different classes!
+ * 
+ * What if i want to connect to MSSQL or MongoDB? Rewrite all code? Write the same code again?
+ */
+
+namespace DatabaseManager.UI
 {
     using System;
     using System.Collections.Generic;
@@ -33,6 +42,8 @@
             SelectData();
             populateOracleOptions();
         }
+
+        
 
         private string DecimalSeparator
         {

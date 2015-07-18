@@ -4,6 +4,8 @@
     using System;
     using System.Configuration;
 
+    // TODO: OracleSelectConnection and OracleNotSelectConnection have similar logic and we must use OOP Inheritance :))
+
     public class OracleNotSelectConnection : IDisposable
     {
         private bool isDisposed = false;
