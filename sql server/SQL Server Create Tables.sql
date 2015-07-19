@@ -59,3 +59,7 @@ Ammount money not null,
 constraint FK_VendorId_Vendors_Id foreign key (VendorId) references Vendors(Id)
 )
 go
+
+alter table Sales 
+add [Date] date not null
+go
