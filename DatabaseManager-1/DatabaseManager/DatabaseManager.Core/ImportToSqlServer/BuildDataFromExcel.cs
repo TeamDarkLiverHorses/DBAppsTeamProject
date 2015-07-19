@@ -5,16 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager.Core.Models;
 
-namespace DatabaseManager.Core.ExportToSqlServer
+namespace DatabaseManager.Core.ImportToSqlServer
 {
-    class BuildDataFromExcel : IDisposable
+    public class BuildDataFromExcel : IDisposable
     {
         bool isDisposed = false;
 
         HashSet<string> products = new HashSet<string>();
         HashSet<string> shops = new HashSet<string>();
 
-        public ExportFromExcelDataHolder BuildSales(Sale[] newSales)
+        public ImportFromExcelDataHolder BuildSales(Sale[] newSales)
         {
             int salesCounter = newSales.Length;
 
@@ -30,7 +30,7 @@ namespace DatabaseManager.Core.ExportToSqlServer
                 this.shops.Add(saleShop);
             }
 
-            return new ExportFromExcelDataHolder(products, shops, newSales);
+            return new ImportFromExcelDataHolder(products, shops, newSales);
         }
 
         public void Dispose()

@@ -23,16 +23,6 @@ D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\Da
 D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.VendorControl.resources
 D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csproj.GenerateResource.Cache
 D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe.config
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe.config
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.pdb
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Core.dll
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.dll
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.SqlServer.dll
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\Oracle.ManagedDataAccess.dll
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Core.pdb
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.xml
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.SqlServer.xml
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csprojResolveAssemblyReference.cache
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.DBManagerWindow.resources
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.ImportToSQLWindow.resources
@@ -43,5 +33,15 @@ D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.ProductControl.resources
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.VendorControl.resources
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csproj.GenerateResource.Cache
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe.config
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.pdb
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Core.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.SqlServer.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Core.pdb
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.xml
+D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.SqlServer.xml
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.exe
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.pdb

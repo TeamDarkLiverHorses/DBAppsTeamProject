@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager.Core.Models;
 
-namespace DatabaseManager.Core.ExportToSqlServer
+namespace DatabaseManager.Core.ImportToSqlServer
 {
-    public class ExportFromExcelDataHolder
+    public class ImportFromExcelDataHolder
     {
         public HashSet<string> Products { get; set; }
         
@@ -15,7 +15,7 @@ namespace DatabaseManager.Core.ExportToSqlServer
 
         public Sale[] Sales { get; set; }
 
-        public ExportFromExcelDataHolder(HashSet<string> products, HashSet<string> shops, Sale[] salse)
+        public ImportFromExcelDataHolder(HashSet<string> products, HashSet<string> shops, Sale[] salse)
         {
             this.Products = products;
 

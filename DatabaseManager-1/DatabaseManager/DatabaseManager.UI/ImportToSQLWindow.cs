@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DatabaseManager.Core.OracleConnectionDB;
-using DatabaseManager.Core.ExportToSqlServer;
+using DatabaseManager.Core.ImportToSqlServer;
 
 namespace DatabaseManager.UI
 {
@@ -40,15 +40,23 @@ namespace DatabaseManager.UI
         private void ExportFromExcel(object sender, EventArgs e)
         {
             MessageBox.Show("I don't work yet.");
+
+            // to do
+            // open file dialog to zip file
+            // read file
+            
+            // get Models.Sale[] class for all sales
+            // ImportFromExcelDataHolder = BuildDataFromExcel(Models.Sale[])
+            //ImportToSql(ExportFromExcelDataHolder)
         }
 
         private void ExportFromOracle(object sender, EventArgs e)
         {
             DataTable oracleTable = null;
 
-            ExportFromOracleDataHolder oracleData = null;
+            ImportFromOracleDataHolder oracleData = null;
 
-            ExportToSql export = null;
+            ImportToSql export = null;
 
             string commandString =
                 "SELECT PRODUCTS.NAME AS PRODUCTNAME, PRODUCTS.PRICE AS PRODUCTPRICE, CATEGORIES.NAME AS CATEGORYNAME, " +
@@ -86,7 +94,7 @@ namespace DatabaseManager.UI
 
                     listInfo.Items.Add("Exporting ...");
                     
-                    using (export = new ExportToSql())
+                    using (export = new ImportToSql())
                     {
                         finalReport.Clear();
                         

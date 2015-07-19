@@ -55,11 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExportToSqlServer\BuildDataFromExcel.cs" />
-    <Compile Include="ExportToSqlServer\ExportFromExcelDataHolder.cs" />
-    <Compile Include="ExportToSqlServer\ExportFromOracleDataHolder.cs" />
-    <Compile Include="ExportToSqlServer\ExportToSql.cs" />
-    <Compile Include="ExportToSqlServer\BuildDataFromOracle.cs" />
+    <Compile Include="ImportToSqlServer\BuildDataFromExcel.cs" />
+    <Compile Include="ImportToSqlServer\ImportFromExcelDataHolder.cs" />
+    <Compile Include="ImportToSqlServer\ImportFromOracleDataHolder.cs" />
+    <Compile Include="ImportToSqlServer\ImportToSql.cs" />
+    <Compile Include="ImportToSqlServer\BuildDataFromOracle.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Expens.cs" />
     <Compile Include="Models\Measure.cs" />

@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using DatabaseManager.Core.Models;
 
-namespace DatabaseManager.Core.ExportToSqlServer
+namespace DatabaseManager.Core.ImportToSqlServer
 {
-    public class ExportFromOracleDataHolder
+    public class ImportFromOracleDataHolder
     {
         public HashSet<string> Vendors { get; set; }
 
@@ -17,7 +17,7 @@ namespace DatabaseManager.Core.ExportToSqlServer
 
         public Product[] Products { get; set; }
 
-        public ExportFromOracleDataHolder(HashSet<string> vendors, HashSet<string> measures, 
+        public ImportFromOracleDataHolder(HashSet<string> vendors, HashSet<string> measures, 
             HashSet<string> categories, Product[] products)
         {
             this.Categories = categories;

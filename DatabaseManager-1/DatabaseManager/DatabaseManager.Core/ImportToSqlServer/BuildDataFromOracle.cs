@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using DatabaseManager.Core.Models;
 using System.Data;
 
-namespace DatabaseManager.Core.ExportToSqlServer
+namespace DatabaseManager.Core.ImportToSqlServer
 {
     public class BuildDataFromOracle :IDisposable
     {
@@ -17,7 +17,7 @@ namespace DatabaseManager.Core.ExportToSqlServer
         HashSet<string> vendors = new HashSet<string>();
         Product[] products;
         
-        public ExportFromOracleDataHolder BuildProducts(DataTable tableProducts, string productNameColumn, string productPriceColumn,
+        public ImportFromOracleDataHolder BuildProducts(DataTable tableProducts, string productNameColumn, string productPriceColumn,
             string categoryNameColumn, string measureNameColumn, string vendorNameColumn)
         {
             try
@@ -57,7 +57,7 @@ namespace DatabaseManager.Core.ExportToSqlServer
                     this.products[i] = newProduct;
                 }
 
-                return new ExportFromOracleDataHolder(vendors, measures, categories, products);
+                return new ImportFromOracleDataHolder(vendors, measures, categories, products);
             }
             catch (FormatException fEx)
             {

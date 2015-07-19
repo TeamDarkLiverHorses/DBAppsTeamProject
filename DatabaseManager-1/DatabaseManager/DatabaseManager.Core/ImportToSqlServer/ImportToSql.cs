@@ -7,15 +7,15 @@ using System.Data;
 using DatabaseManager.Core.Models;
 using DatabaseManager.Core.OracleConnectionDB;
 
-namespace DatabaseManager.Core.ExportToSqlServer
+namespace DatabaseManager.Core.ImportToSqlServer
 {
-    public class ExportToSql : IDisposable
+    public class ImportToSql : IDisposable
     {
         private bool isDisposed = false;
 
         private SupermarketsContext superContext = null;
 
-        public Dictionary<string, int> ExportDataFromOracle(ExportFromOracleDataHolder dataHolderOracle)
+        public Dictionary<string, int> ExportDataFromOracle(ImportFromOracleDataHolder dataHolderOracle)
         {
             Dictionary<string, int> exportedData = new Dictionary<string, int>();
 
@@ -148,7 +148,7 @@ namespace DatabaseManager.Core.ExportToSqlServer
             }
         }
 
-        public int ExportDataFromExcel(ExportFromExcelDataHolder dataHolderOExcel)
+        public int ExportDataFromExcel(ImportFromExcelDataHolder dataHolderOExcel)
         {
             int countExportedSales = 0;
 
@@ -162,6 +162,7 @@ namespace DatabaseManager.Core.ExportToSqlServer
                     {
                         using (scTransaction)
                         {
+                            // this checks if all products exist in the database
                             foreach (string currentProductName in dataHolderOExcel.Products)
                             {
                                 if (!superContext.Products.Where(p => p.Name == currentProductName).Any())
@@ -171,18 +172,19 @@ namespace DatabaseManager.Core.ExportToSqlServer
 
                             }
 
-                            superContext.SaveChanges();
-
+                            // this checks if all shops exist in the database
                             foreach (string currentShopName in dataHolderOExcel.Shops)
                             {
+                                // add shop if it not exists   
                                 if (!superContext.Shops.Where(s => s.Name == currentShopName).Any())
                                 {
-                                    throw new ArgumentNullException(string.Format("Shop {0} does not exists in the database."));
+                                    superContext.Shops.Add(new Shop() { Name = currentShopName });
                                 }
                             }
 
                             superContext.SaveChanges();
 
+                            // add all sales
                             for (int i = 0; i < dataHolderOExcel.Sales.Length; i++)
                             {
                                 Sale currentSale = dataHolderOExcel.Sales[i];

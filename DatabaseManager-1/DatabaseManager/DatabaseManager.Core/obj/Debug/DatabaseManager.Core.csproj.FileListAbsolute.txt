@@ -19,6 +19,5 @@ D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bi
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.xml
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\bin\Debug\EntityFramework.SqlServer.xml
-D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.csprojResolveAssemblyReference.cache
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.dll
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.Core\obj\Debug\DatabaseManager.Core.pdb
