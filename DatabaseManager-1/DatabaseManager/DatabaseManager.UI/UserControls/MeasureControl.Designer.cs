@@ -52,7 +52,7 @@
             this.btnUpdate.Location = new System.Drawing.Point(6, 42);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 40);
-            this.btnUpdate.TabIndex = 1;
+            this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -63,7 +63,7 @@
             this.txtMeasure.MaxLength = 20;
             this.txtMeasure.Name = "txtMeasure";
             this.txtMeasure.Size = new System.Drawing.Size(340, 20);
-            this.txtMeasure.TabIndex = 0;
+            this.txtMeasure.TabIndex = 1;
             // 
             // label1
             // 

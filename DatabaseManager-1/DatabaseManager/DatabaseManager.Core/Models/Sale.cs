@@ -19,6 +19,10 @@ namespace DatabaseManager.Core.Models
         [Column(TypeName = "money")]
         public decimal UnitPrice { get; set; }
 
+        [Column(TypeName = "date")]
+        [Required]
+        public DateTime Date { get; set; }
+
         public virtual Product Product { get; set; }
 
         public virtual Shop Shop { get; set; }

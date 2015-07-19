@@ -46,8 +46,9 @@ namespace DatabaseManager.UI
             // read file
             
             // get Models.Sale[] class for all sales
+            
             // ImportFromExcelDataHolder = BuildDataFromExcel(Models.Sale[])
-            //ImportToSql(ExportFromExcelDataHolder)
+            // ImportToSql(ExportFromExcelDataHolder)
         }
 
         private void ExportFromOracle(object sender, EventArgs e)

@@ -79,7 +79,7 @@
             this.btnExportOracle.Name = "btnExportOracle";
             this.btnExportOracle.Size = new System.Drawing.Size(260, 40);
             this.btnExportOracle.TabIndex = 1;
-            this.btnExportOracle.Text = "2. Import Data To SQL";
+            this.btnExportOracle.Text = "2. &Import Data To SQL";
             this.btnExportOracle.UseVisualStyleBackColor = true;
             // 
             // btnOracle
@@ -88,7 +88,7 @@
             this.btnOracle.Name = "btnOracle";
             this.btnOracle.Size = new System.Drawing.Size(260, 40);
             this.btnOracle.TabIndex = 0;
-            this.btnOracle.Text = "1. Oracle Database";
+            this.btnOracle.Text = "1. &Oracle Database";
             this.btnOracle.UseVisualStyleBackColor = true;
             // 
             // stripMain

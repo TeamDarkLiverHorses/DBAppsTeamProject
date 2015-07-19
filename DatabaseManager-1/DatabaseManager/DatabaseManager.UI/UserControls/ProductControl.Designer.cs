@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.comboCategory = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.comboMeasure = new System.Windows.Forms.ComboBox();
             this.comboVendor = new System.Windows.Forms.ComboBox();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -38,8 +40,6 @@
             this.txtProduct = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.comboCategory = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +63,24 @@
             this.panel1.Size = new System.Drawing.Size(361, 248);
             this.panel1.TabIndex = 0;
             // 
+            // comboCategory
+            // 
+            this.comboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboCategory.FormattingEnabled = true;
+            this.comboCategory.Location = new System.Drawing.Point(10, 172);
+            this.comboCategory.Name = "comboCategory";
+            this.comboCategory.Size = new System.Drawing.Size(340, 21);
+            this.comboCategory.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 156);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "&Category:";
+            // 
             // comboMeasure
             // 
             this.comboMeasure.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -70,7 +88,7 @@
             this.comboMeasure.Location = new System.Drawing.Point(10, 132);
             this.comboMeasure.Name = "comboMeasure";
             this.comboMeasure.Size = new System.Drawing.Size(197, 21);
-            this.comboMeasure.TabIndex = 3;
+            this.comboMeasure.TabIndex = 7;
             // 
             // comboVendor
             // 
@@ -79,14 +97,14 @@
             this.comboVendor.Location = new System.Drawing.Point(10, 92);
             this.comboVendor.Name = "comboVendor";
             this.comboVendor.Size = new System.Drawing.Size(340, 21);
-            this.comboVendor.TabIndex = 2;
+            this.comboVendor.TabIndex = 5;
             // 
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(10, 199);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(120, 40);
-            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.TabIndex = 10;
             this.btnUpdate.Text = "&Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
             // 
@@ -96,7 +114,7 @@
             this.label4.Location = new System.Drawing.Point(7, 116);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 13);
-            this.label4.TabIndex = 2;
+            this.label4.TabIndex = 6;
             this.label4.Text = "&Measure:";
             // 
             // label3
@@ -105,7 +123,7 @@
             this.label3.Location = new System.Drawing.Point(7, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 4;
             this.label3.Text = "&Vendor:";
             // 
             // txtPrice
@@ -115,7 +133,7 @@
             this.txtPrice.MaxLength = 20;
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(157, 20);
-            this.txtPrice.TabIndex = 1;
+            this.txtPrice.TabIndex = 3;
             // 
             // txtProduct
             // 
@@ -124,7 +142,7 @@
             this.txtProduct.MaxLength = 50;
             this.txtProduct.Name = "txtProduct";
             this.txtProduct.Size = new System.Drawing.Size(340, 20);
-            this.txtProduct.TabIndex = 0;
+            this.txtProduct.TabIndex = 1;
             // 
             // label2
             // 
@@ -132,7 +150,7 @@
             this.label2.Location = new System.Drawing.Point(7, 38);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(73, 13);
-            this.label2.TabIndex = 0;
+            this.label2.TabIndex = 2;
             this.label2.Text = "P&roduct price:";
             // 
             // label1
@@ -143,24 +161,6 @@
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "&Product name:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 156);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 13);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "&Category:";
-            // 
-            // comboCategory
-            // 
-            this.comboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboCategory.FormattingEnabled = true;
-            this.comboCategory.Location = new System.Drawing.Point(10, 172);
-            this.comboCategory.Name = "comboCategory";
-            this.comboCategory.Size = new System.Drawing.Size(340, 21);
-            this.comboCategory.TabIndex = 4;
             // 
             // ProductControl
             // 

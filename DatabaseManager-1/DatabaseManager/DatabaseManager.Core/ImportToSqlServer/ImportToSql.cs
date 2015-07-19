@@ -104,9 +104,7 @@ namespace DatabaseManager.Core.ImportToSqlServer
                                 currentProduct.Measure = superContext.Measures.Where(m => m.Name == currentProduct.Measure.Name).First();
                                 currentProduct.Vendor = superContext.Vendors.Where(v => v.Name == currentProduct.Vendor.Name).First();
 
-                                if (!superContext.Products.Where(p => p.Name == currentProduct.Name &&
-                                    p.Price == currentProduct.Price && p.CategoryId == currentProduct.Category.Id &&
-                                    p.MeasureId == currentProduct.Measure.Id && p.VendorId == currentProduct.Vendor.Id).Any())
+                                if (!superContext.Products.Where(p => p.Name == currentProduct.Name).Any())
                                 {
                                     superContext.Products.Add(currentProduct);
 
@@ -192,7 +190,10 @@ namespace DatabaseManager.Core.ImportToSqlServer
                                 currentSale.Product = superContext.Products.Where(p => p.Name == currentSale.Product.Name).First();
                                 currentSale.Shop= superContext.Shops.Where(shop => shop.Name == currentSale.Shop.Name).First();
 
-                                superContext.Sales.Add(currentSale);
+                                if (!superContext.Sales.Where(s => s.Date == currentSale.Date).Any())
+                                {
+                                    superContext.Sales.Add(currentSale);
+                                }
 
                                 countExportedSales += 1;
                             }

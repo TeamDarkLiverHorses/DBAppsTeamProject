@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkNoParent = new System.Windows.Forms.CheckBox();
+            this.comboParent = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.txtCategory = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboParent = new System.Windows.Forms.ComboBox();
-            this.checkNoParent = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,41 +53,15 @@
             this.panel1.Size = new System.Drawing.Size(361, 128);
             this.panel1.TabIndex = 1;
             // 
-            // btnUpdate
+            // checkNoParent
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(6, 83);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(120, 40);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "&Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
-            // txtCategory
-            // 
-            this.txtCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtCategory.Location = new System.Drawing.Point(6, 16);
-            this.txtCategory.MaxLength = 20;
-            this.txtCategory.Name = "txtCategory";
-            this.txtCategory.Size = new System.Drawing.Size(340, 20);
-            this.txtCategory.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(76, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "&New category:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 39);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "&Parent:";
+            this.checkNoParent.AutoSize = true;
+            this.checkNoParent.Location = new System.Drawing.Point(132, 83);
+            this.checkNoParent.Name = "checkNoParent";
+            this.checkNoParent.Size = new System.Drawing.Size(74, 17);
+            this.checkNoParent.TabIndex = 4;
+            this.checkNoParent.Text = "No Paren&t";
+            this.checkNoParent.UseVisualStyleBackColor = true;
             // 
             // comboParent
             // 
@@ -98,15 +72,41 @@
             this.comboParent.Size = new System.Drawing.Size(340, 21);
             this.comboParent.TabIndex = 3;
             // 
-            // checkNoParent
+            // label2
             // 
-            this.checkNoParent.AutoSize = true;
-            this.checkNoParent.Location = new System.Drawing.Point(132, 83);
-            this.checkNoParent.Name = "checkNoParent";
-            this.checkNoParent.Size = new System.Drawing.Size(74, 17);
-            this.checkNoParent.TabIndex = 4;
-            this.checkNoParent.Text = "No Parent";
-            this.checkNoParent.UseVisualStyleBackColor = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 39);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "&Parent:";
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.Location = new System.Drawing.Point(6, 83);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(120, 40);
+            this.btnUpdate.TabIndex = 5;
+            this.btnUpdate.Text = "&Update";
+            this.btnUpdate.UseVisualStyleBackColor = true;
+            // 
+            // txtCategory
+            // 
+            this.txtCategory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCategory.Location = new System.Drawing.Point(6, 16);
+            this.txtCategory.MaxLength = 20;
+            this.txtCategory.Name = "txtCategory";
+            this.txtCategory.Size = new System.Drawing.Size(340, 20);
+            this.txtCategory.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(76, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "&New category:";
             // 
             // CategoryControl
             // 
