@@ -9,13 +9,13 @@ namespace DatabaseManager.Core.ExportToSqlServer
 {
     public class ExportFromExcelDataHolder
     {
-        public HashSet<Product> Products { get; set; }
+        public HashSet<string> Products { get; set; }
         
-        public HashSet<Shop> Shops {get; set;}
+        public HashSet<string> Shops {get; set;}
 
         public Sale[] Sales { get; set; }
 
-        public ExportFromExcelDataHolder(HashSet<Product> products, HashSet<Shop> shops, Sale[] salse)
+        public ExportFromExcelDataHolder(HashSet<string> products, HashSet<string> shops, Sale[] salse)
         {
             this.Products = products;
 

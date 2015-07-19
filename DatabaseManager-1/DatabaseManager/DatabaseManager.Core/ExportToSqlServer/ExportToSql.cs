@@ -148,6 +148,83 @@ namespace DatabaseManager.Core.ExportToSqlServer
             }
         }
 
+        public int ExportDataFromExcel(ExportFromExcelDataHolder dataHolderOExcel)
+        {
+            int countExportedSales = 0;
+
+            try
+            {
+                using (superContext = new SupermarketsContext())
+                {
+                    var scTransaction = superContext.Database.BeginTransaction();
+
+                    try
+                    {
+                        using (scTransaction)
+                        {
+                            foreach (string currentProductName in dataHolderOExcel.Products)
+                            {
+                                if (!superContext.Products.Where(p => p.Name == currentProductName).Any())
+                                {
+                                    throw new ArgumentNullException(string.Format("Product {0} does not exists in the database."));
+                                }
+
+                            }
+
+                            superContext.SaveChanges();
+
+                            foreach (string currentShopName in dataHolderOExcel.Shops)
+                            {
+                                if (!superContext.Shops.Where(s => s.Name == currentShopName).Any())
+                                {
+                                    throw new ArgumentNullException(string.Format("Shop {0} does not exists in the database."));
+                                }
+                            }
+
+                            superContext.SaveChanges();
+
+                            for (int i = 0; i < dataHolderOExcel.Sales.Length; i++)
+                            {
+                                Sale currentSale = dataHolderOExcel.Sales[i];
+
+                                currentSale.Product = superContext.Products.Where(p => p.Name == currentSale.Product.Name).First();
+                                currentSale.Shop= superContext.Shops.Where(shop => shop.Name == currentSale.Shop.Name).First();
+
+                                superContext.Sales.Add(currentSale);
+
+                                countExportedSales += 1;
+                            }
+
+                            superContext.SaveChanges();
+
+                            scTransaction.Commit();
+                        }
+
+                        return countExportedSales;
+                    }
+                    catch (Exception innerEx)
+                    {
+                        try
+                        {
+                            scTransaction.Rollback();
+                        }
+                        catch (Exception rollBackEx)
+                        {
+                            throw new Exception(innerEx.Message + Environment.NewLine + "Error data was not rolled back.", rollBackEx);
+                        }
+
+                        throw new Exception(innerEx.Message + Environment.NewLine + "Error updating database. The data was rolled back.", innerEx);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ClearData();
+
+                throw ex;
+            }
+        }
+
         private void ClearData()
         {
             if (superContext != null)

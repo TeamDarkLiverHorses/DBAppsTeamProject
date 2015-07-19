@@ -11,15 +11,12 @@ namespace DatabaseManager.Core.ExportToSqlServer
     {
         bool isDisposed = false;
 
-        HashSet<Product> products = new HashSet<Product>();
-        HashSet<Shop> shops = new HashSet<Shop>();
-        Sale[] sales;
+        HashSet<string> products = new HashSet<string>();
+        HashSet<string> shops = new HashSet<string>();
 
         public ExportFromExcelDataHolder BuildSales(Sale[] newSales)
         {
             int salesCounter = newSales.Length;
-
-            this.sales = newSales;
 
             // this builds the unique products and shop names
             for (int i = 0; i < salesCounter; i++)
@@ -29,8 +26,8 @@ namespace DatabaseManager.Core.ExportToSqlServer
                 int saleQuantity = newSales[i].Quantity;
                 decimal saleUnitPrice = newSales[i].UnitPrice;
 
-                this.products.Add(new Product() { Name = saleProduct, Price = saleUnitPrice });
-                this.shops.Add(new Shop() { Name = saleShop });
+                this.products.Add(saleProduct);
+                this.shops.Add(saleShop);
             }
 
             return new ExportFromExcelDataHolder(products, shops, newSales);
@@ -50,8 +47,6 @@ namespace DatabaseManager.Core.ExportToSqlServer
 
                 this.shops.Clear();
                 this.shops = null;
-
-                this.sales = null;
             }
 
             GC.SuppressFinalize(this);
