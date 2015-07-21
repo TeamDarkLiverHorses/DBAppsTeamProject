@@ -1,9 +1,6 @@
 namespace DatabaseManager.Data
 {
-    using System;
     using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
     using DatabaseManager.Models;
 
     public partial class SupermarketsContext : DbContext

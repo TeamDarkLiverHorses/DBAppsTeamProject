@@ -1,9 +1,9 @@
-﻿using System;
-using System.Data;
-using Oracle.ManagedDataAccess.Client;
-
-namespace DatabaseManager.ImportSalesData.OracleConnectionsDB
+﻿namespace DatabaseManager.ImportSalesData.OracleConnectionsDB
 {
+    using System;
+    using System.Data;
+    using Oracle.ManagedDataAccess.Client;
+
     public class OracleDBAction
     {
         public int InsertProductCategory(string commandString, string categoryName, string categoryValue, string parentName, string parentValue)

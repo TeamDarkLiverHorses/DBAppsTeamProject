@@ -5,35 +5,33 @@
     using System.Linq;
     using DatabaseManager.Data;
     using DatabaseManager.Models;
-    using DatabaseManager.ImportSalesData.OracleConnectionsDB;
 
     public class ImportToSql : IDisposable
     {
         private bool isDisposed = false;
-
         private SupermarketsContext superContext = null;
 
         public Dictionary<string, int> ExportDataFromOracle(ImportFromOracleDataHolder dataHolderOracle)
         {
             Dictionary<string, int> exportedData = new Dictionary<string, int>();
 
-            string exportedCategories = "Exported categories";
-            string notExportedCategories = "Categories already added";
-            string exportedMeasure = "Exported measures";
-            string notExportedMeasure = "Measures already added";
-            string exportedVendors = "Exported vendors";
-            string notExportedVendors = "Vendors already added";
-            string exportedProducts = "Exported products";
-            string notExportedProducts = "Products already added";
+            const string ExportedCategories = "Exported categories";
+            const string NotExportedCategories = "Categories already added";
+            const string ExportedMeasure = "Exported measures";
+            const string NotExportedMeasure = "Measures already added";
+            const string ExportedVendors = "Exported vendors";
+            const string NotExportedVendors = "Vendors already added";
+            const string ExportedProducts = "Exported products";
+            const string NotExportedProducts = "Products already added";
 
-            exportedData.Add(exportedCategories, 0);
-            exportedData.Add(notExportedCategories, 0);
-            exportedData.Add(exportedMeasure, 0);
-            exportedData.Add(notExportedMeasure, 0);
-            exportedData.Add(exportedVendors, 0);
-            exportedData.Add(notExportedVendors, 0);
-            exportedData.Add(exportedProducts, 0);
-            exportedData.Add(notExportedProducts, 0);
+            exportedData.Add(ExportedCategories, 0);
+            exportedData.Add(NotExportedCategories, 0);
+            exportedData.Add(ExportedMeasure, 0);
+            exportedData.Add(NotExportedMeasure, 0);
+            exportedData.Add(ExportedVendors, 0);
+            exportedData.Add(NotExportedVendors, 0);
+            exportedData.Add(ExportedProducts, 0);
+            exportedData.Add(NotExportedProducts, 0);
             
             try
             {
@@ -51,11 +49,11 @@
                                 {
                                     superContext.Categories.Add(new Category() { Name = currentCategory });
                                     
-                                    exportedData[exportedCategories] += 1;
+                                    exportedData[ExportedCategories] += 1;
                                 }
                                 else
                                 {
-                                    exportedData[notExportedCategories] += 1;
+                                    exportedData[NotExportedCategories] += 1;
                                 }
 
                             }
@@ -68,11 +66,11 @@
                                 {
                                     superContext.Measures.Add(new Measure() { Name = currentMeasure });
                                     
-                                    exportedData[exportedMeasure] += 1;
+                                    exportedData[ExportedMeasure] += 1;
                                 }
                                 else
                                 {
-                                    exportedData[notExportedMeasure] += 1;
+                                    exportedData[NotExportedMeasure] += 1;
                                 }
                             }
 
@@ -84,11 +82,11 @@
                                 {
                                     superContext.Vendors.Add(new Vendor() { Name = currentVendor });
 
-                                    exportedData[exportedVendors] += 1;
+                                    exportedData[ExportedVendors] += 1;
                                 }
                                 else
                                 {
-                                    exportedData[notExportedVendors] += 1;
+                                    exportedData[NotExportedVendors] += 1;
                                 }
                             }
 
@@ -106,11 +104,11 @@
                                 {
                                     superContext.Products.Add(currentProduct);
 
-                                    exportedData[exportedProducts] += 1;
+                                    exportedData[ExportedProducts] += 1;
                                 }
                                 else
                                 {
-                                    exportedData[notExportedProducts] += 1;
+                                    exportedData[NotExportedProducts] += 1;
                                 }
                             }
 

@@ -3,13 +3,11 @@
     using System;
     using System.Collections.Generic;
     using System.Data;
-    using System.Linq;
     using DatabaseManager.Models;
 
-    public class BuildDataFromOracle :IDisposable
+    public class BuildDataFromOracle : IDisposable
     {
         private bool isDisposed = false;
-
         private HashSet<string> categories = new HashSet<string>();
         private HashSet<string> measures = new HashSet<string>();
         private HashSet<string> vendors = new HashSet<string>();
@@ -21,7 +19,6 @@
             try
             {
                 int productsCount = tableProducts.Rows.Count;
-
                 this.products = new Product[productsCount];
 
                 for (int i = 0; i < productsCount; i++)
@@ -33,25 +30,23 @@
                     string productVednor = tableProducts.Rows[i][vendorNameColumn].ToString();
 
                     decimal price;
-
                     if (!decimal.TryParse(productPrice, out price))
                     {
                         throw new FormatException(string.Format("Product {0} has invalid price", productName));
                     }
 
                     this.categories.Add(productCategory);
-
                     this.measures.Add(productMeasure);
-
                     this.vendors.Add(productVednor);
 
-                    Product newProduct = new Product();
-                    newProduct.Name = productName;
-                    newProduct.Price = price;
-                    newProduct.Category = new Category() { Name = productCategory };
-                    newProduct.Measure = new Measure() { Name = productMeasure };
-                    newProduct.Vendor = new Vendor() { Name = productVednor };
-
+                    var newProduct = new Product()
+                    {
+                        Name = productName,
+                        Price = price,
+                        Category = new Category() { Name = productCategory },
+                        Measure = new Measure() { Name = productMeasure },
+                        Vendor = new Vendor() { Name = productVednor }
+                    };
                     this.products[i] = newProduct;
                 }
 

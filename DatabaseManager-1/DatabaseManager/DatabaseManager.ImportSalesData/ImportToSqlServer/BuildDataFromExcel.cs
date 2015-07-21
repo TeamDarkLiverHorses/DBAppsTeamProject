@@ -2,17 +2,13 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using DatabaseManager.Models;
 
     public class BuildDataFromExcel : IDisposable
     {
-        bool isDisposed = false;
-
-        HashSet<string> products = new HashSet<string>();
-        HashSet<string> shops = new HashSet<string>();
+        private bool isDisposed = false;
+        private HashSet<string> products = new HashSet<string>();
+        private HashSet<string> shops = new HashSet<string>();
 
         public ImportFromExcelDataHolder BuildSales(Sale[] newSales)
         {
