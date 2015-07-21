@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.UI", "DatabaseManager.UI\DatabaseManager.UI.csproj", "{F90F3C55-F3A3-426C-BB96-A34876362B6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.Models", "DatabaseManager.Core\DatabaseManager.Models.csproj", "{3C6474B7-0C01-4364-A291-6657CCA8CD8D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.Models", "DatabaseManager.Models\DatabaseManager.Models.csproj", "{3C6474B7-0C01-4364-A291-6657CCA8CD8D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.Data", "DatabaseManager.Data\DatabaseManager.Data.csproj", "{8032705E-C350-4C1D-A872-D4A1E2F7A032}"
 EndProject

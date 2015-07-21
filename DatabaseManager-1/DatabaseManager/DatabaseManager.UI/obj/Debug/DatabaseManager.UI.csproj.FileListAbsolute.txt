@@ -71,3 +71,6 @@ D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\
 \\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.ImportSalesData.dll
 \\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Data.pdb
 \\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.ImportSalesData.pdb
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe.config
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.exe
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.pdb

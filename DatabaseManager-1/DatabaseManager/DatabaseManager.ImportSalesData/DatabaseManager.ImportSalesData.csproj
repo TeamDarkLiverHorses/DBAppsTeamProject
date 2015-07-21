@@ -69,7 +69,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseManager.Core\DatabaseManager.Models.csproj">
+    <ProjectReference Include="..\DatabaseManager.Models\DatabaseManager.Models.csproj">
       <Project>{3c6474b7-0c01-4364-a291-6657cca8cd8d}</Project>
       <Name>DatabaseManager.Models</Name>
     </ProjectReference>
