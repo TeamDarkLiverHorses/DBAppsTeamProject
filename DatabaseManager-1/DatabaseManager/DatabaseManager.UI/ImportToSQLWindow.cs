@@ -1,17 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using DatabaseManager.Core.OracleConnectionDB;
-using DatabaseManager.Core.ImportToSqlServer;
-
-namespace DatabaseManager.UI
+﻿namespace DatabaseManager.UI
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Data;
+    using System.Windows.Forms;
+    using DatabaseManager.ImportSalesData.OracleConnectionsDB;
+    using DatabaseManager.ImportSalesData.ImportToSqlServer;
+
     public partial class ImportToSQLWindow : Form
     {
         public ImportToSQLWindow()

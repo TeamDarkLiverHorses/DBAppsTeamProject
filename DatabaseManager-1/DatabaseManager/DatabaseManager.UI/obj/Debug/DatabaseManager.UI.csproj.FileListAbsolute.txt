@@ -45,3 +45,29 @@ D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csproj.GenerateResource.Cache
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.exe
 D:\Documents\Visual Studio 2013\Projects\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.pdb
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe.config
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.exe
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.pdb
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.pdb
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Core.dll
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.dll
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.SqlServer.dll
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\Oracle.ManagedDataAccess.dll
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Core.pdb
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.xml
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\EntityFramework.SqlServer.xml
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csprojResolveAssemblyReference.cache
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.DBManagerWindow.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.ImportToSQLWindow.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.MainWindow.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.Properties.Resources.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.CategoryControl.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.MeasureControl.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.ProductControl.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.VendorControl.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csproj.GenerateResource.Cache
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Data.dll
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.ImportSalesData.dll
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.Data.pdb
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.ImportSalesData.pdb

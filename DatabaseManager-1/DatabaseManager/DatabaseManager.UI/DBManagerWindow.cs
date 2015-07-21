@@ -14,9 +14,9 @@ namespace DatabaseManager.UI
     using System.Data;
     using System.Drawing;
     using System.Windows.Forms;
-    using Core.Models;
+    using DatabaseManager.Models;
     using UserControls;
-    using Core.OracleConnectionDB;
+    using DatabaseManager.ImportSalesData.OracleConnectionsDB;
 
     public partial class DBManagerWindow : Form
     {

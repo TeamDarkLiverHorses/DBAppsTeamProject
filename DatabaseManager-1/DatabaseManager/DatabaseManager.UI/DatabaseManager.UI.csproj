@@ -75,7 +75,7 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="DBManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UserControls\CategoryControl.cs">
       <SubType>UserControl</SubType>
@@ -149,9 +149,17 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseManager.Core\DatabaseManager.Core.csproj">
+    <ProjectReference Include="..\DatabaseManager.Core\DatabaseManager.Models.csproj">
       <Project>{3c6474b7-0c01-4364-a291-6657cca8cd8d}</Project>
-      <Name>DatabaseManager.Core</Name>
+      <Name>DatabaseManager.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseManager.Data\DatabaseManager.Data.csproj">
+      <Project>{8032705e-c350-4c1d-a872-d4a1e2f7a032}</Project>
+      <Name>DatabaseManager.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseManager.ImportSalesData\DatabaseManager.ImportSalesData.csproj">
+      <Project>{6705e4c0-cbe7-4edf-ab30-70e6039d5a33}</Project>
+      <Name>DatabaseManager.ImportSalesData</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

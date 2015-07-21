@@ -23,3 +23,13 @@ D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\Da
 D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.VendorControl.resources
 D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csproj.GenerateResource.Cache
 D:\Programming\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe.config
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\bin\Debug\DatabaseManager.UI.exe.config
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csprojResolveAssemblyReference.cache
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.DBManagerWindow.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.MainWindow.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.Properties.Resources.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.CategoryControl.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.MeasureControl.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.ProductControl.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.UserControls.VendorControl.resources
+\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager\DatabaseManager.UI\obj\Debug\DatabaseManager.UI.csproj.GenerateResource.Cache
