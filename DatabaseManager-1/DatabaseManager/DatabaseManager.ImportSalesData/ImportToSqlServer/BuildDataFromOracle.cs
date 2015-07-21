@@ -5,21 +5,18 @@
     using System.Data;
     using DatabaseManager.Models;
 
-    public class BuildDataFromOracle : IDisposable
+    public static class BuildDataFromOracle
     {
-        private bool isDisposed = false;
-        private HashSet<string> categories = new HashSet<string>();
-        private HashSet<string> measures = new HashSet<string>();
-        private HashSet<string> vendors = new HashSet<string>();
-        private Product[] products;
-        
-        public ImportFromOracleDataHolder BuildProducts(DataTable tableProducts, string productNameColumn, string productPriceColumn,
+        public static ImportFromOracleDataHolder BuildProducts(DataTable tableProducts, string productNameColumn, string productPriceColumn,
             string categoryNameColumn, string measureNameColumn, string vendorNameColumn)
         {
             try
             {
+                var categories = new HashSet<string>();
+                var measures = new HashSet<string>();
+                var vendors = new HashSet<string>();
                 int productsCount = tableProducts.Rows.Count;
-                this.products = new Product[productsCount];
+                var products = new Product[productsCount];
 
                 for (int i = 0; i < productsCount; i++)
                 {
@@ -35,9 +32,9 @@
                         throw new FormatException(string.Format("Product {0} has invalid price", productName));
                     }
 
-                    this.categories.Add(productCategory);
-                    this.measures.Add(productMeasure);
-                    this.vendors.Add(productVednor);
+                    categories.Add(productCategory);
+                    measures.Add(productMeasure);
+                    vendors.Add(productVednor);
 
                     var newProduct = new Product()
                     {
@@ -47,7 +44,7 @@
                         Measure = new Measure() { Name = productMeasure },
                         Vendor = new Vendor() { Name = productVednor }
                     };
-                    this.products[i] = newProduct;
+                    products[i] = newProduct;
                 }
 
                 return new ImportFromOracleDataHolder(vendors, measures, categories, products);
@@ -60,32 +57,6 @@
             {
                 throw ex;
             }
-        }
-
-        public void Dispose()
-        {
-            Dispose(isDisposed);
-        }
-
-        private void Dispose(bool disposed)
-        {
-            if (!disposed)
-            {
-                this.categories.Clear();
-                this.categories = null;
-
-                this.measures.Clear();
-                this.measures = null;
-
-                this.vendors.Clear();
-                this.vendors = null;
-
-                this.products = null;
-
-                isDisposed = true;
-            }
-
-            GC.SuppressFinalize(this);
         }
     }
 }

@@ -26,5 +26,10 @@ namespace DatabaseManager.Models
         public virtual Product Product { get; set; }
 
         public virtual Shop Shop { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return this.Date == ((Sale)obj).Date;
+        }
     }
 }

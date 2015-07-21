@@ -4,48 +4,25 @@
     using System.Collections.Generic;
     using DatabaseManager.Models;
 
-    public class BuildDataFromExcel : IDisposable
+    public static class BuildDataFromExcel
     {
-        private bool isDisposed = false;
-        private HashSet<string> products = new HashSet<string>();
-        private HashSet<string> shops = new HashSet<string>();
-
-        public ImportFromExcelDataHolder BuildSales(Sale[] newSales)
+        public static ImportFromExcelDataHolder BuildSales(Sale[] newSales)
         {
-            int salesCounter = newSales.Length;
+            var products = new HashSet<string>();
+            var shops = new HashSet<string>();
 
-            // this builds the unique products and shop names
-            for (int i = 0; i < salesCounter; i++)
+            for (int i = 0; i < newSales.Length; i++)
             {
                 string saleShop = newSales[i].Shop.Name;
                 string saleProduct = newSales[i].Product.Name;
                 int saleQuantity = newSales[i].Quantity;
                 decimal saleUnitPrice = newSales[i].UnitPrice;
 
-                this.products.Add(saleProduct);
-                this.shops.Add(saleShop);
+                products.Add(saleProduct);
+                shops.Add(saleShop);
             }
 
             return new ImportFromExcelDataHolder(products, shops, newSales);
-        }
-
-        public void Dispose()
-        {
-            Dispose(isDisposed);
-        }
-
-        private void Dispose(bool disposed)
-        {
-            if (!disposed)
-            {
-                this.products.Clear();
-                this.products = null;
-
-                this.shops.Clear();
-                this.shops = null;
-            }
-
-            GC.SuppressFinalize(this);
         }
     }
 }

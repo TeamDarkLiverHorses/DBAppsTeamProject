@@ -14,3 +14,19 @@
 \\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\EntityFramework.SqlServer.xml
 \\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\obj\Debug\DatabaseManager.ImportSalesData.dll
 \\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\obj\Debug\DatabaseManager.ImportSalesData.pdb
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\DatabaseManager.ImportSalesData.dll.config
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\DatabaseManager.Data.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\DatabaseManager.Models.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\EntityFramework.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\EntityFramework.SqlServer.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\Oracle.ManagedDataAccess.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\Oracle.ManagedDataAccess.EntityFramework.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\DatabaseManager.Models.pdb
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\DatabaseManager.Data.pdb
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\EntityFramework.xml
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\EntityFramework.SqlServer.xml
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\obj\Debug\DatabaseManager.ImportSalesData.csprojResolveAssemblyReference.cache
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\obj\Debug\DatabaseManager.ImportSalesData.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\obj\Debug\DatabaseManager.ImportSalesData.pdb
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\DatabaseManager.ImportSalesData.dll
+D:\Programming\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.ImportSalesData\bin\Debug\DatabaseManager.ImportSalesData.pdb

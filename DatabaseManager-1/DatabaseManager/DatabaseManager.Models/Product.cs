@@ -48,5 +48,10 @@ namespace DatabaseManager.Models
         }
 
         public virtual Vendor Vendor { get; set; }
+
+        public override bool Equals(object obj)
+        {
+            return this.Name == ((Product)obj).Name;
+        }
     }
 }
