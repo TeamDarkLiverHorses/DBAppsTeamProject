@@ -19,7 +19,7 @@
             const string ExportedProducts = "Exported products";
             const string NotExportedProducts = "Products already added";
 
-            var context = new SupermarketsContext();
+            using (var context = new SupermarketsContext())
             using (var transaction = context.Database.BeginTransaction())
             {
                 try
