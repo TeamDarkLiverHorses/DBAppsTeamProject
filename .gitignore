@@ -1,4 +1,5 @@
 *.config
+*.suo
 bin
 obj
 packages
