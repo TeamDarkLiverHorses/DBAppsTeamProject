@@ -1,0 +1,6 @@
+C:\Users\Admin\Documents\Projects\PdfWriter\PdfWriter\bin\Debug\PdfWriter.exe
+C:\Users\Admin\Documents\Projects\PdfWriter\PdfWriter\bin\Debug\PdfWriter.pdb
+C:\Users\Admin\Documents\Projects\PdfWriter\PdfWriter\bin\Debug\itextsharp.dll
+C:\Users\Admin\Documents\Projects\PdfWriter\PdfWriter\bin\Debug\itextsharp.xml
+C:\Users\Admin\Documents\Projects\PdfWriter\PdfWriter\obj\x86\Debug\PdfWriter.exe
+C:\Users\Admin\Documents\Projects\PdfWriter\PdfWriter\obj\x86\Debug\PdfWriter.pdb
