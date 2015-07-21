@@ -13,6 +13,7 @@ namespace DatabaseManager.Data.Migrations
 
         protected override void Seed(DatabaseManager.Data.SupermarketsContext context)
         {
+
         }
     }
 }

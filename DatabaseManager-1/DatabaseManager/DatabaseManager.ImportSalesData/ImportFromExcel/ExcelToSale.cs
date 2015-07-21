@@ -4,7 +4,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
     using DatabaseManager.Models;
-    
+
     public class ExcelToSale
     {
         public Sale GetSale(string productName, string shopName, string quantity, string price)

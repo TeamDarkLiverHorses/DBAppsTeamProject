@@ -35,6 +35,7 @@
             this.btnExportOracle = new System.Windows.Forms.Button();
             this.btnOracle = new System.Windows.Forms.Button();
             this.stripMain = new System.Windows.Forms.StatusStrip();
+            this.btnExportPdf = new System.Windows.Forms.Button();
             this.menu.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
@@ -65,6 +66,7 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.btnExportPdf);
             this.panelMain.Controls.Add(this.btnExportOracle);
             this.panelMain.Controls.Add(this.btnOracle);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -99,6 +101,15 @@
             this.stripMain.TabIndex = 2;
             this.stripMain.Text = "statusStrip1";
             // 
+            // btnExportPdf
+            // 
+            this.btnExportPdf.Location = new System.Drawing.Point(4, 95);
+            this.btnExportPdf.Name = "btnExportPdf";
+            this.btnExportPdf.Size = new System.Drawing.Size(260, 40);
+            this.btnExportPdf.TabIndex = 2;
+            this.btnExportPdf.Text = "3. &Export To PDF";
+            this.btnExportPdf.UseVisualStyleBackColor = true;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -129,6 +140,7 @@
         private System.Windows.Forms.StatusStrip stripMain;
         private System.Windows.Forms.Button btnOracle;
         private System.Windows.Forms.Button btnExportOracle;
+        private System.Windows.Forms.Button btnExportPdf;
     }
 }
 

@@ -6,6 +6,8 @@
     using System.Windows.Forms;
     using DatabaseManager.ImportSalesData.OracleConnectionsDB;
     using DatabaseManager.ImportSalesData.ImportToSqlServer;
+    using DatabaseManager.Models;
+    using DatabaseManager.ImportSalesData.ImportFromExcel;
 
     public partial class ImportToSQLWindow : Form
     {
@@ -25,19 +27,59 @@
 
         private void ExportFromExcel(object sender, EventArgs e)
         {
-            MessageBox.Show("I don't work yet.");
+            try
+            {
+                string filePath = string.Empty;
 
-            // MAKE SEPARATE CLASS AND CALL ITS METHODS HERE
-            // DON`T WRITE THE LOGIC HERE
+                using (OpenFileDialog openZip = new OpenFileDialog())
+                {
+                    openZip.Filter = "Zip file (*.zip)|*.zip";
 
-            // to do
-            // open file dialog to zip file
-            // read file
-            
-            // get Models.Sale[] class for all sales
-            
-            // ImportFromExcelDataHolder = BuildDataFromExcel(Models.Sale[])
-            // ImportToSql(ExportFromExcelDataHolder)
+                    if (openZip.ShowDialog() == DialogResult.OK)
+                    {
+                        filePath = openZip.FileName;
+                    }
+                }
+
+                if (filePath != string.Empty)
+                {
+                    listInfo.Items.Add("Reading file...");
+
+                    ReadZipFile readExcel = new ReadZipFile();
+
+                    List<Sale> sales = readExcel.GetExcelEntriesFromZip(filePath);
+
+                    this.listInfo.Items.Add("Building sales...");
+
+                    ImportFromExcelDataHolder excelDataHolder = null;
+
+                    excelDataHolder = BuildDataFromExcel.BuildSales(sales.ToArray());
+
+                    this.listInfo.Items.Add(string.Format("There are {0} sale(s) for import.", excelDataHolder.Sales.Length));
+
+                    this.listInfo.Items.Add(string.Format("There are {0} shop(s) for import.", excelDataHolder.Shops.Count));
+
+                    this.listInfo.Items.Add("Importing...");
+
+                    // throws error
+                    int importedExcels = ImportToSql.ExportDataFromExcel(excelDataHolder);
+
+                    this.listInfo.Items.Add(string.Format("Number of imported sales - {0}.", importedExcels));
+
+                    this.listInfo.Items.Add("Done!!!");
+                }
+
+            }
+            catch (FormatException formatEx)
+            {
+                MessageBox.Show(formatEx.Message);
+                this.listInfo.Items.Add(formatEx.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.listInfo.Items.Add(ex.Message);
+            }
         }
 
         private void ExportFromOracle(object sender, EventArgs e)

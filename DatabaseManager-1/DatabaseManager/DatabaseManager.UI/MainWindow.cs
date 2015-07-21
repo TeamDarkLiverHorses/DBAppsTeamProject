@@ -12,6 +12,7 @@
             this.mExit.Click += (s, e) => this.Close();
             this.btnOracle.Click += StartOracleForm;
             this.btnExportOracle.Click += ExportOracleDB;
+            this.btnExportPdf.Click += ExportToPdf;
         }
 
         public void StartOracleForm(object sender, EventArgs e)
@@ -27,6 +28,16 @@
         public void ExportOracleDB(object sender, EventArgs e)
         {
             ImportToSQLWindow exportWindow = new ImportToSQLWindow();
+
+            using (exportWindow)
+            {
+                exportWindow.ShowDialog(this);
+            }
+        }
+
+        public void ExportToPdf(object sender, EventArgs e)
+        {
+            ExportToPdfWindow exportWindow = new ExportToPdfWindow();
 
             using (exportWindow)
             {

@@ -6,7 +6,7 @@
     using System.IO;
     using System.IO.Compression;
     using Excel;
-    
+
     public class ReadExcel
     {
         public List<Sale> Read(ZipArchiveEntry entry)

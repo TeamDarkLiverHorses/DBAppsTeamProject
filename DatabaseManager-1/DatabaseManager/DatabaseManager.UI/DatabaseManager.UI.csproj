@@ -63,6 +63,12 @@
     <Compile Include="DBManagerWindow.Designer.cs">
       <DependentUpon>DBManagerWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExportToPdfWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportToPdfWindow.Designer.cs">
+      <DependentUpon>ExportToPdfWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ImportToSQLWindow.cs">
       <SubType>Form</SubType>
     </Compile>
