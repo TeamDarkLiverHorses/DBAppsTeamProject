@@ -5,20 +5,12 @@
     using System.Linq;
     using DatabaseManager.Data;
     using DatabaseManager.Models;
+    using DatabaseManager.ImportSalesData.Utilities;
 
     public static class ImportToSql
     {
         public static Dictionary<string, int> ImportFromOracleToMSSql(ImportFromOracleDataHolder dataHolderOracle)
         {
-            const string ExportedCategories = "Exported categories";
-            const string NotExportedCategories = "Categories already added";
-            const string ExportedMeasure = "Exported measures";
-            const string NotExportedMeasure = "Measures already added";
-            const string ExportedVendors = "Exported vendors";
-            const string NotExportedVendors = "Vendors already added";
-            const string ExportedProducts = "Exported products";
-            const string NotExportedProducts = "Products already added";
-
             using (var context = new SupermarketsContext())
             using (var transaction = context.Database.BeginTransaction())
             {
@@ -30,27 +22,27 @@
                         Except(context.Categories.Select(c => c.Name)).
                         Select(c => new Category() { Name = c });
                     context.Categories.AddRange(categoriesToImport);
-                    exportedData.Add(ExportedCategories, categoriesToImport.Count());
-                    exportedData.Add(NotExportedCategories, dataHolderOracle.Categories.Count - categoriesToImport.Count());
+                    exportedData.Add(Messages.ExportedCategories, categoriesToImport.Count());
+                    exportedData.Add(Messages.NotExportedCategories, dataHolderOracle.Categories.Count - categoriesToImport.Count());
 
                     var measuresToImport = dataHolderOracle.Measures.
                         Except(context.Measures.Select(m => m.Name)).
                         Select(m => new Measure() { Name = m });
                     context.Measures.AddRange(measuresToImport);
-                    exportedData.Add(ExportedMeasure, measuresToImport.Count());
-                    exportedData.Add(NotExportedMeasure, dataHolderOracle.Measures.Count - measuresToImport.Count());
+                    exportedData.Add(Messages.ExportedMeasure, measuresToImport.Count());
+                    exportedData.Add(Messages.NotExportedMeasure, dataHolderOracle.Measures.Count - measuresToImport.Count());
 
                     var vendorsToImport = dataHolderOracle.Vendors.
                         Except(context.Vendors.Select(v => v.Name)).
                         Select(v => new Vendor() { Name = v });
                     context.Vendors.AddRange(vendorsToImport);
-                    exportedData.Add(ExportedVendors, vendorsToImport.Count());
-                    exportedData.Add(NotExportedVendors, dataHolderOracle.Vendors.Count - vendorsToImport.Count());
+                    exportedData.Add(Messages.ExportedVendors, vendorsToImport.Count());
+                    exportedData.Add(Messages.NotExportedVendors, dataHolderOracle.Vendors.Count - vendorsToImport.Count());
 
                     var productsToImport = dataHolderOracle.Products.Except(context.Products);
                     context.Products.AddRange(productsToImport);
-                    exportedData.Add(ExportedProducts, productsToImport.Count());
-                    exportedData.Add(NotExportedProducts, dataHolderOracle.Products.Length - productsToImport.Count());
+                    exportedData.Add(Messages.ExportedProducts, productsToImport.Count());
+                    exportedData.Add(Messages.NotExportedProducts, dataHolderOracle.Products.Length - productsToImport.Count());
                     
                     context.SaveChanges();
                     transaction.Commit();
@@ -65,10 +57,10 @@
                     }
                     catch (Exception rollBackEx)
                     {
-                        throw new Exception("Error data was not rolled back.", rollBackEx);
+                        throw new Exception(Messages.ErrorDuringRollback, rollBackEx);
                     }
 
-                    throw new Exception("Error updating database. The data was rolled back.", innerEx);
+                    throw new Exception(Messages.ErrorUpdatingSQLDatabase, innerEx);
                 }
             }
         }
@@ -84,7 +76,7 @@
                         Except(context.Products.Select(p => p.Name));
                     if (productsNotInDB.Count() > 0)
                     {
-                        throw new Exception(string.Format("Products {0} does not exist in the database.",
+                        throw new Exception(string.Format(Messages.NonExistingProduct,
                             string.Join(", ", productsNotInDB)));
                     }
 
@@ -110,10 +102,10 @@
                     }
                     catch (Exception rollBackEx)
                     {
-                        throw new Exception(innerEx.Message + Environment.NewLine + "Error data was not rolled back.", rollBackEx);
+                        throw new Exception(innerEx.Message + Environment.NewLine + Messages.ErrorDuringRollback, rollBackEx);
                     }
 
-                    throw new Exception(innerEx.Message + Environment.NewLine + "Error updating database. The data was rolled back.", innerEx);
+                    throw new Exception(innerEx.Message + Environment.NewLine + Messages.ErrorUpdatingSQLDatabase, innerEx);
                 }
             }
         }
