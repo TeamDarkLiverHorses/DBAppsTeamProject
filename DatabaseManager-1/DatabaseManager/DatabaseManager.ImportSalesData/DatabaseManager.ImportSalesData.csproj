@@ -70,6 +70,8 @@
     <Compile Include="ImportToSqlServer\ImportFromExcelDataHolder.cs" />
     <Compile Include="ImportToSqlServer\ImportFromOracleDataHolder.cs" />
     <Compile Include="ImportToSqlServer\ImportToSql.cs" />
+    <Compile Include="ImportToSqlServer\OracleImporter.cs" />
+    <Compile Include="NativeSQL\NativeOracleSQLCommands.cs" />
     <Compile Include="OracleConnectionsDB\OracleDBAction.cs" />
     <Compile Include="OracleConnectionsDB\OracleNotSelectConnection.cs" />
     <Compile Include="OracleConnectionsDB\OracleSelectConnection.cs" />

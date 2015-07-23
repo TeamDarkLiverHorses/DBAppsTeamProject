@@ -14,7 +14,7 @@
         public ImportToSQLWindow()
         {
             InitializeComponent();
-            this.btnExport.Click += ExportFromOracle;
+            this.btnExport.Click += ImportFromOracle;
             this.btnClear.Click += ClearData;
             this.mExit.Click += ExitForm;
             this.btnExcel.Click += ExportFromExcel;
@@ -82,56 +82,62 @@
             }
         }
 
-        private void ExportFromOracle(object sender, EventArgs e)
+        private void ImportFromOracle(object sender, EventArgs e)
         {
-            const string CommandString =
-                "SELECT PRODUCTS.NAME AS PRODUCTNAME, PRODUCTS.PRICE AS PRODUCTPRICE, CATEGORIES.NAME AS CATEGORYNAME, " +
-                "MEASURES.NAME AS MEASURENAME, VENDORS.NAME AS VENDORNAME " +
-                "FROM PRODUCTS " +
-                "JOIN CATEGORIES ON PRODUCTS.CATEGORY_ID = CATEGORIES.ID " +
-                "JOIN VENDORS ON PRODUCTS.VENDOR_ID = VENDORS.ID " +
-                "JOIN MEASURES ON PRODUCTS.MEASURE_ID = MEASURES.ID ORDER BY Products.name";
+            var oracleImporter = new OracleImporter();
+            listInfo.Items.Add(oracleImporter.ImportVendors());
+            listInfo.Items.Add(oracleImporter.ImportMeasures());
+            listInfo.Items.Add(oracleImporter.ImportCategories());
+            listInfo.Items.Add(oracleImporter.ImportParentCategories());
 
-            try
-            {
-                listInfo.Items.Add("Getting data to export...");
-                OracleDBAction oracleAction = new OracleDBAction();
-                var oracleTable = oracleAction.SelectProduct(CommandString);
+            //const string CommandString =
+            //    "SELECT PRODUCTS.NAME AS PRODUCTNAME, PRODUCTS.PRICE AS PRODUCTPRICE, CATEGORIES.NAME AS CATEGORYNAME, " +
+            //    "MEASURES.NAME AS MEASURENAME, VENDORS.NAME AS VENDORNAME " +
+            //    "FROM PRODUCTS " +
+            //    "JOIN CATEGORIES ON PRODUCTS.CATEGORY_ID = CATEGORIES.ID " +
+            //    "JOIN VENDORS ON PRODUCTS.VENDOR_ID = VENDORS.ID " +
+            //    "JOIN MEASURES ON PRODUCTS.MEASURE_ID = MEASURES.ID ORDER BY Products.name";
 
-                listInfo.Items.Add("Building data to export...");
-                if (oracleTable == null)
-                {
-                    this.listInfo.Items.Add("There are no products to export.");
-                    return;
-                }
+            //try
+            //{
+            //    listInfo.Items.Add("Getting data to export...");
+            //    OracleDBAction oracleAction = new OracleDBAction();
+            //    var oracleTable = oracleAction.SelectProduct(CommandString);
 
-                var oracleData = BuildDataFromOracle.BuildProducts(oracleTable, "PRODUCTNAME", "PRODUCTPRICE",
-                "CATEGORYNAME", "MEASURENAME", "VENDORNAME");
+            //    listInfo.Items.Add("Building data to export...");
+            //    if (oracleTable == null)
+            //    {
+            //        this.listInfo.Items.Add("There are no products to export.");
+            //        return;
+            //    }
 
-                this.listInfo.Items.Add(string.Format("Threre are {0} categories to export.", oracleData.Categories.Count));
-                this.listInfo.Items.Add(string.Format("Threre are {0} measures to export.", oracleData.Measures.Count));
-                this.listInfo.Items.Add(string.Format("Threre are {0} vendors to export.", oracleData.Vendors.Count));
-                this.listInfo.Items.Add(string.Format("Threre are {0} products to export.", oracleData.Products.Length));
+            //    var oracleData = BuildDataFromOracle.BuildProducts(oracleTable, "PRODUCTNAME", "PRODUCTPRICE",
+            //    "CATEGORYNAME", "MEASURENAME", "VENDORNAME");
 
-                listInfo.Items.Add("Exporting ...");
-                var finalReport = ImportToSql.ImportFromOracleToMSSql(oracleData);
-                foreach (string key in finalReport.Keys)
-                {
-                    this.listInfo.Items.Add(key + " - " + finalReport[key].ToString());
-                }
-                this.listInfo.Items.Add("Done!!!");
+            //    this.listInfo.Items.Add(string.Format("Threre are {0} categories to export.", oracleData.Categories.Count));
+            //    this.listInfo.Items.Add(string.Format("Threre are {0} measures to export.", oracleData.Measures.Count));
+            //    this.listInfo.Items.Add(string.Format("Threre are {0} vendors to export.", oracleData.Vendors.Count));
+            //    this.listInfo.Items.Add(string.Format("Threre are {0} products to export.", oracleData.Products.Length));
 
-            }
-            catch (FormatException fEx)
-            {
-                this.listInfo.Items.Add(fEx.Message);
-                MessageBox.Show(fEx.Message);
-            }
-            catch (Exception ex)
-            {
-                this.listInfo.Items.Add(ex.Message);
-                MessageBox.Show(ex.Message);
-            }
+            //    listInfo.Items.Add("Exporting ...");
+            //    var finalReport = ImportToSql.ImportFromOracleToMSSql(oracleData);
+            //    foreach (string key in finalReport.Keys)
+            //    {
+            //        this.listInfo.Items.Add(key + " - " + finalReport[key].ToString());
+            //    }
+            //    this.listInfo.Items.Add("Done!!!");
+
+            //}
+            //catch (FormatException fEx)
+            //{
+            //    this.listInfo.Items.Add(fEx.Message);
+            //    MessageBox.Show(fEx.Message);
+            //}
+            //catch (Exception ex)
+            //{
+            //    this.listInfo.Items.Add(ex.Message);
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void ClearData(object sender, EventArgs e)

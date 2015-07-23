@@ -16,37 +16,40 @@
             {
                 try
                 {
-                    var exportedData = new Dictionary<string, int>();
+                    var exportOperationInfo = new Dictionary<string, int>();
 
-                    var categoriesToImport = dataHolderOracle.Categories.
-                        Except(context.Categories.Select(c => c.Name)).
-                        Select(c => new Category() { Name = c });
+                    var categoriesToImport = dataHolderOracle.Categories
+                        //.Where(categoryInOracle => categoryInOracle.)
+                        .Except(context.Categories.Select(c => c.Name))
+                        .Select(c => new Category() { Name = c });
+
                     context.Categories.AddRange(categoriesToImport);
-                    exportedData.Add(Messages.ExportedCategories, categoriesToImport.Count());
-                    exportedData.Add(Messages.NotExportedCategories, dataHolderOracle.Categories.Count - categoriesToImport.Count());
+
+                    exportOperationInfo.Add(Messages.ExportedCategories, categoriesToImport.Count());
+                    exportOperationInfo.Add(Messages.NotExportedCategories, dataHolderOracle.Categories.Count - categoriesToImport.Count());
 
                     var measuresToImport = dataHolderOracle.Measures.
                         Except(context.Measures.Select(m => m.Name)).
                         Select(m => new Measure() { Name = m });
                     context.Measures.AddRange(measuresToImport);
-                    exportedData.Add(Messages.ExportedMeasure, measuresToImport.Count());
-                    exportedData.Add(Messages.NotExportedMeasure, dataHolderOracle.Measures.Count - measuresToImport.Count());
+                    exportOperationInfo.Add(Messages.ExportedMeasure, measuresToImport.Count());
+                    exportOperationInfo.Add(Messages.NotExportedMeasure, dataHolderOracle.Measures.Count - measuresToImport.Count());
 
                     var vendorsToImport = dataHolderOracle.Vendors.
                         Except(context.Vendors.Select(v => v.Name)).
                         Select(v => new Vendor() { Name = v });
                     context.Vendors.AddRange(vendorsToImport);
-                    exportedData.Add(Messages.ExportedVendors, vendorsToImport.Count());
-                    exportedData.Add(Messages.NotExportedVendors, dataHolderOracle.Vendors.Count - vendorsToImport.Count());
+                    exportOperationInfo.Add(Messages.ExportedVendors, vendorsToImport.Count());
+                    exportOperationInfo.Add(Messages.NotExportedVendors, dataHolderOracle.Vendors.Count - vendorsToImport.Count());
 
                     var productsToImport = dataHolderOracle.Products.Except(context.Products);
                     context.Products.AddRange(productsToImport);
-                    exportedData.Add(Messages.ExportedProducts, productsToImport.Count());
-                    exportedData.Add(Messages.NotExportedProducts, dataHolderOracle.Products.Length - productsToImport.Count());
+                    exportOperationInfo.Add(Messages.ExportedProducts, productsToImport.Count());
+                    exportOperationInfo.Add(Messages.NotExportedProducts, dataHolderOracle.Products.Length - productsToImport.Count());
                     
                     context.SaveChanges();
                     transaction.Commit();
-                    return exportedData;
+                    return exportOperationInfo;
                 }
                 // TODO: Change to more concrete exceptions
                 catch (Exception innerEx)

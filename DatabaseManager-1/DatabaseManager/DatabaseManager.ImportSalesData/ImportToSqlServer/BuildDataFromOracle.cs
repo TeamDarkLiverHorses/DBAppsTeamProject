@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Data;
     using DatabaseManager.Models;
+    using DatabaseManager.ImportSalesData.Utilities;
 
     public static class BuildDataFromOracle
     {
@@ -29,7 +30,7 @@
                     decimal price;
                     if (!decimal.TryParse(productPrice, out price))
                     {
-                        throw new FormatException(string.Format("Product {0} has invalid price", productName));
+                        throw new FormatException(string.Format(Messages.InvalidProductPrice, productName));
                     }
 
                     categories.Add(productCategory);
