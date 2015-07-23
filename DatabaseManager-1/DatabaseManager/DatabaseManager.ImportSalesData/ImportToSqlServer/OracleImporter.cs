@@ -167,22 +167,80 @@
                     parentCategoryName = row["parent_category"].ToString();
 
                     var category = context.Categories.Where(c => c.Name == categoryName).FirstOrDefault();
-                    var parentCategoryId = context.Categories
+                    if (category.ParentCategoryId == null)
+                    {
+                        var parentCategoryId = context.Categories
                         .Where(c => c.Name == parentCategoryName)
                         .Select(pc => pc.Id)
                         .FirstOrDefault();
 
-                    context.Categories.Attach(category);
+                        context.Categories.Attach(category);
 
-                    var entry = context.Entry(category);
-                    entry.State = EntityState.Modified;
-                    entry.Property(e => e.ParentCategoryId).CurrentValue = parentCategoryId;
-                    addedParentCategoriesCount++;
-
+                        var entry = context.Entry(category);
+                        entry.State = EntityState.Modified;
+                        entry.Property(e => e.ParentCategoryId).CurrentValue = parentCategoryId;
+                        addedParentCategoriesCount++;
+                    }
                 }
                 context.SaveChanges();
 
                 return string.Format(Messages.AddedParentCategories, addedParentCategoriesCount);
+            }
+            catch (FormatException formatException)
+            {
+                return formatException.Message;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string ImportProducts()
+        {
+            string productName = "";
+            string productPrice, productCategory, productMeasure, productVendor;
+            int addedProductsCount = 0;
+
+            try
+            {
+                OracleSelectConnection oracleConnection = new OracleSelectConnection();
+                var oracleTable = oracleConnection.SelectData(NativeOracleSQLCommands.GetProducts, null);
+
+                if (oracleTable == null)
+                {
+                    return Messages.NoProductsInOracleDatabase;
+                }
+
+                foreach (DataRow row in oracleTable.Rows)
+                {
+                    productName = row["name"].ToString();
+                    productPrice = row["price"].ToString();
+                    productVendor = row["vendor"].ToString();
+                    productMeasure = row["measure"].ToString();
+                    productCategory = row["category"].ToString();
+                    
+
+                    if (!this.context.Products.Any(c => c.Name == productName))
+                    {
+                        int vendorId = this.context.Vendors.Where(v => v.Name == productVendor).Select(v => v.Id).FirstOrDefault();
+                        int measureId = this.context.Measures.Where(m => m.Name == productMeasure).Select(m => m.Id).FirstOrDefault();
+                        int categoryId = this.context.Categories.Where(c => c.Name == productCategory).Select(c => c.Id).FirstOrDefault();
+
+                        context.Products.Add(new Product()
+                        {
+                            Name = productName,
+                            Price = decimal.Parse(productPrice),
+                            VendorId = vendorId,
+                            MeasureId = measureId,
+                            CategoryId = categoryId
+                        });
+                        addedProductsCount++;
+                    }
+                }
+                context.SaveChanges();
+
+                return string.Format(Messages.AddedProducts, addedProductsCount);
             }
             catch (FormatException formatException)
             {

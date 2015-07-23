@@ -89,6 +89,7 @@
             listInfo.Items.Add(oracleImporter.ImportMeasures());
             listInfo.Items.Add(oracleImporter.ImportCategories());
             listInfo.Items.Add(oracleImporter.ImportParentCategories());
+            listInfo.Items.Add(oracleImporter.ImportProducts());
 
             //const string CommandString =
             //    "SELECT PRODUCTS.NAME AS PRODUCTNAME, PRODUCTS.PRICE AS PRODUCTPRICE, CATEGORIES.NAME AS CATEGORYNAME, " +

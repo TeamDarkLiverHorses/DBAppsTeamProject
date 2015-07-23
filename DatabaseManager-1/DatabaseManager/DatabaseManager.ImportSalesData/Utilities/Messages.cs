@@ -17,9 +17,11 @@
         public static readonly string NoVendorsInOracleDatabase = "There are no vendors in the Oracle database.";
         public static readonly string NoMeasuresInOracleDatabase = "There are no measures in the Oracle database.";
         public static readonly string NoCategoriesInOracleDatabase = "There are no categories in the Oracle database.";
+        public static readonly string NoProductsInOracleDatabase = "There are no products in the Oracle database.";
         public static readonly string AddedVendors = "Added {0} vendors.";
         public static readonly string AddedMeasures = "Added {0} measures.";
         public static readonly string AddedCategories = "Added {0} categories.";
         public static readonly string AddedParentCategories = "Added {0} parent categories.";
+        public static readonly string AddedProducts = "Added {0} products.";
     }
 }
