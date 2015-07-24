@@ -111,6 +111,9 @@
     <EmbeddedResource Include="DBManagerWindow.resx">
       <DependentUpon>DBManagerWindow.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExportToPdfWindow.resx">
+      <DependentUpon>ExportToPdfWindow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ImportToSQLWindow.resx">
       <DependentUpon>ImportToSQLWindow.cs</DependentUpon>
     </EmbeddedResource>

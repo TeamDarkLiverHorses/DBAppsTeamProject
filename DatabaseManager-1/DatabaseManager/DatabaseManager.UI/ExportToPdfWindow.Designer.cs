@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -36,16 +38,17 @@
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnExport = new System.Windows.Forms.Button();
             this.dataGridViewSales = new System.Windows.Forms.DataGridView();
-            this.columnProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.columnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbSearch = new System.Windows.Forms.GroupBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.dateHelper = new System.Windows.Forms.DateTimePicker();
             this.dateMain = new System.Windows.Forms.DateTimePicker();
             this.comboSearchBy = new System.Windows.Forms.ComboBox();
+            this.btnExportSelection = new System.Windows.Forms.Button();
+            this.columnProduct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnLocation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.columnDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menu.SuspendLayout();
             this.pnlMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSales)).BeginInit();
@@ -58,7 +61,7 @@
             this.fileToolStripMenuItem});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(584, 24);
+            this.menu.Size = new System.Drawing.Size(684, 24);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
             // 
@@ -80,19 +83,20 @@
             // 
             this.stripMain.Location = new System.Drawing.Point(0, 439);
             this.stripMain.Name = "stripMain";
-            this.stripMain.Size = new System.Drawing.Size(584, 22);
+            this.stripMain.Size = new System.Drawing.Size(684, 22);
             this.stripMain.TabIndex = 1;
             this.stripMain.Text = "statusStrip1";
             // 
             // pnlMain
             // 
+            this.pnlMain.Controls.Add(this.btnExportSelection);
             this.pnlMain.Controls.Add(this.btnExport);
             this.pnlMain.Controls.Add(this.dataGridViewSales);
             this.pnlMain.Controls.Add(this.gbSearch);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlMain.Location = new System.Drawing.Point(0, 24);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(584, 415);
+            this.pnlMain.Size = new System.Drawing.Size(684, 415);
             this.pnlMain.TabIndex = 2;
             // 
             // btnExport
@@ -111,8 +115,8 @@
             this.dataGridViewSales.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.AliceBlue;
             this.dataGridViewSales.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewSales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.dataGridViewSales.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewSales.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGridViewSales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -127,45 +131,8 @@
             this.dataGridViewSales.ReadOnly = true;
             this.dataGridViewSales.RowHeadersVisible = false;
             this.dataGridViewSales.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewSales.Size = new System.Drawing.Size(560, 279);
+            this.dataGridViewSales.Size = new System.Drawing.Size(660, 279);
             this.dataGridViewSales.TabIndex = 1;
-            // 
-            // columnProduct
-            // 
-            this.columnProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnProduct.FillWeight = 300F;
-            this.columnProduct.HeaderText = "Product";
-            this.columnProduct.Name = "columnProduct";
-            this.columnProduct.ReadOnly = true;
-            // 
-            // columnQuantity
-            // 
-            this.columnQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnQuantity.HeaderText = "Quantity";
-            this.columnQuantity.Name = "columnQuantity";
-            this.columnQuantity.ReadOnly = true;
-            // 
-            // columnPrice
-            // 
-            this.columnPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnPrice.HeaderText = "Price";
-            this.columnPrice.Name = "columnPrice";
-            this.columnPrice.ReadOnly = true;
-            // 
-            // columnLocation
-            // 
-            this.columnLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnLocation.FillWeight = 300F;
-            this.columnLocation.HeaderText = "Location";
-            this.columnLocation.Name = "columnLocation";
-            this.columnLocation.ReadOnly = true;
-            // 
-            // columnDate
-            // 
-            this.columnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.columnDate.HeaderText = "Date";
-            this.columnDate.Name = "columnDate";
-            this.columnDate.ReadOnly = true;
             // 
             // gbSearch
             // 
@@ -214,16 +181,71 @@
             this.comboSearchBy.Size = new System.Drawing.Size(218, 21);
             this.comboSearchBy.TabIndex = 0;
             // 
-            // ExportPdfWindow
+            // btnExportSelection
+            // 
+            this.btnExportSelection.Location = new System.Drawing.Point(108, 382);
+            this.btnExportSelection.Name = "btnExportSelection";
+            this.btnExportSelection.Size = new System.Drawing.Size(120, 30);
+            this.btnExportSelection.TabIndex = 3;
+            this.btnExportSelection.Text = "E&xport Selection";
+            this.btnExportSelection.UseVisualStyleBackColor = true;
+            // 
+            // columnProduct
+            // 
+            this.columnProduct.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnProduct.FillWeight = 300F;
+            this.columnProduct.HeaderText = "Product";
+            this.columnProduct.Name = "columnProduct";
+            this.columnProduct.ReadOnly = true;
+            this.columnProduct.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // columnQuantity
+            // 
+            this.columnQuantity.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnQuantity.HeaderText = "Quantity";
+            this.columnQuantity.Name = "columnQuantity";
+            this.columnQuantity.ReadOnly = true;
+            this.columnQuantity.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // columnPrice
+            // 
+            this.columnPrice.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Format = "c";
+            this.columnPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.columnPrice.HeaderText = "Price";
+            this.columnPrice.Name = "columnPrice";
+            this.columnPrice.ReadOnly = true;
+            this.columnPrice.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // columnLocation
+            // 
+            this.columnLocation.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.columnLocation.FillWeight = 300F;
+            this.columnLocation.HeaderText = "Location";
+            this.columnLocation.Name = "columnLocation";
+            this.columnLocation.ReadOnly = true;
+            this.columnLocation.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // columnDate
+            // 
+            this.columnDate.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Format = "d";
+            this.columnDate.DefaultCellStyle = dataGridViewCellStyle3;
+            this.columnDate.HeaderText = "Date";
+            this.columnDate.Name = "columnDate";
+            this.columnDate.ReadOnly = true;
+            this.columnDate.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ExportToPdfWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(584, 461);
+            this.ClientSize = new System.Drawing.Size(684, 461);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.stripMain);
             this.Controls.Add(this.menu);
             this.MainMenuStrip = this.menu;
-            this.Name = "ExportPdfWindow";
+            this.Name = "ExportToPdfWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Export To PDF";
             this.menu.ResumeLayout(false);
@@ -250,6 +272,7 @@
         private System.Windows.Forms.DateTimePicker dateHelper;
         private System.Windows.Forms.DateTimePicker dateMain;
         private System.Windows.Forms.ComboBox comboSearchBy;
+        private System.Windows.Forms.Button btnExportSelection;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn columnPrice;
