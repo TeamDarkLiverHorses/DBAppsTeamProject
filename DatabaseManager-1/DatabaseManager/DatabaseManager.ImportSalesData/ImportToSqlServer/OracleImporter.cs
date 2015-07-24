@@ -1,7 +1,6 @@
 ﻿namespace DatabaseManager.ImportSalesData.ImportToSqlServer
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
     using DatabaseManager.Data;
     using DatabaseManager.Models;

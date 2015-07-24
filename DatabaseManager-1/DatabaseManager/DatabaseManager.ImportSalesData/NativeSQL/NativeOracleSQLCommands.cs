@@ -12,7 +12,7 @@
             "join Categories c2" + Environment.NewLine +
             "on c1.PARENT_CATEGORY_ID = c2.id";
         public static readonly string GetProducts = "select p.Name, p.Price, v.Name as vendor, m.Name as measure, c.Name as Category" + Environment.NewLine +
-            "from Products p join Vendors v on p.vendor_id = v.id" + Environment.NewLine +
+            "from Products p left join Vendors v on p.vendor_id = v.id" + Environment.NewLine +
             "join Measures m on p.measure_id = m.id" + Environment.NewLine +
             "join Categories c on p.category_id = c.id";
     }

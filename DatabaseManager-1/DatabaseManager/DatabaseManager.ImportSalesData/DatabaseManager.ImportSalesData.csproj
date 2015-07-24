@@ -62,14 +62,8 @@
     <Reference Include="System.Xml.Serialization" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ImportFromExcel\ExcelToSale.cs" />
-    <Compile Include="ImportFromExcel\ReadExcel.CS" />
-    <Compile Include="ImportFromExcel\ReadZipFile.cs" />
-    <Compile Include="ImportToSqlServer\BuildDataFromExcel.cs" />
-    <Compile Include="ImportToSqlServer\BuildDataFromOracle.cs" />
-    <Compile Include="ImportToSqlServer\ImportFromExcelDataHolder.cs" />
-    <Compile Include="ImportToSqlServer\ImportFromOracleDataHolder.cs" />
-    <Compile Include="ImportToSqlServer\ImportToSql.cs" />
+    <Compile Include="ImportToSqlServer\ExcelDataImporter.cs" />
+    <Compile Include="ImportToSqlServer\ExcellDataExtractor.cs" />
     <Compile Include="ImportToSqlServer\OracleImporter.cs" />
     <Compile Include="NativeSQL\NativeOracleSQLCommands.cs" />
     <Compile Include="OracleConnectionsDB\OracleDBAction.cs" />

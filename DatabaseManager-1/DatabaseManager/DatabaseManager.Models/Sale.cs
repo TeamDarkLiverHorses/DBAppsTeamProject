@@ -29,7 +29,9 @@ namespace DatabaseManager.Models
 
         public override bool Equals(object obj)
         {
-            return this.Date == ((Sale)obj).Date;
+            return this.Date == ((Sale)obj).Date &&
+                this.ProductId == ((Sale)obj).ProductId &&
+                this.ShopId == ((Sale)obj).ShopId;
         }
     }
 }
