@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Utilities\Constants.cs" />
     <Compile Include="DBManagerWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +167,10 @@
     <ProjectReference Include="..\DatabaseManager.ImportSalesData\DatabaseManager.ImportSalesData.csproj">
       <Project>{6705e4c0-cbe7-4edf-ab30-70e6039d5a33}</Project>
       <Name>DatabaseManager.ImportSalesData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseManager.SalesReports\DatabaseManager.SalesReports.csproj">
+      <Project>{31598ca7-7e56-4d95-93f3-a019c7cdc8ca}</Project>
+      <Name>DatabaseManager.SalesReports</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

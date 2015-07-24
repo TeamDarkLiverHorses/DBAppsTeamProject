@@ -27,21 +27,21 @@
 
         public void ExportOracleDB(object sender, EventArgs e)
         {
-            ImportToSQLWindow exportWindow = new ImportToSQLWindow();
+            ImportToSQLWindow importWindow = new ImportToSQLWindow();
 
-            using (exportWindow)
+            using (importWindow)
             {
-                exportWindow.ShowDialog(this);
+                importWindow.ShowDialog(this);
             }
         }
 
         public void ExportToPdf(object sender, EventArgs e)
         {
-            ExportToPdfWindow exportWindow = new ExportToPdfWindow();
+            ExportToPdfWindow exportToPdfWindow = new ExportToPdfWindow();
 
-            using (exportWindow)
+            using (exportToPdfWindow)
             {
-                exportWindow.ShowDialog(this);
+                exportToPdfWindow.ShowDialog(this);
             }
         }
     }
