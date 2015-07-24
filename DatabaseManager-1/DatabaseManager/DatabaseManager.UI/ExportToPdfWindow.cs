@@ -2,7 +2,6 @@
 {
     using System;
     using System.Windows.Forms;
-    using DatabaseManager.UI.Utilities;
     using System.Collections.Generic;
     using DatabaseManager.Models;
     using DatabaseManager.SalesReports;
@@ -10,15 +9,13 @@
 
     public partial class ExportToPdfWindow : Form
     {
-        //private const string ReportFilePath = @"\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.SalesReports\SalesReports\test.pdf";
-        //private const string reportFilePath = @"test.pdf";
         private List<Sale> salesData;
 
         public ExportToPdfWindow()
         {
             InitializeComponent();
-            this.comboSearchBy.SelectedIndexChanged += SearchOption;
-            this.comboSearchBy.DataSource = new string[] { Constants.OnDate, Constants.BeforeDate, Constants.AfterDate, Constants.BetweenDates };
+            this.comboSearchBy.SelectedIndexChanged += OnComboChanged;
+            this.comboSearchBy.DataSource = Enum.GetValues(typeof(SearchOption));
             this.btnSearch.Click += Search;
             this.btnExport.Click += ExportToPdf;
             this.btnExportSelection.Click += ExportToPdfSelection;
@@ -35,67 +32,52 @@
 
             using (var salesReportProvider = new SalesReportForPeriod())
             {
-                switch (this.comboSearchBy.SelectedItem.ToString())
+                switch ((SearchOption)this.comboSearchBy.SelectedItem)
                 {
-                    case Constants.OnDate:
+                    case SearchOption.ExactDate:
                         this.salesData = salesReportProvider.
                             GetSalesOn(this.dateMain.Value).
                             ToList();
                         break;
-                    case Constants.BeforeDate:
+                    case SearchOption.BeforeDate:
                         this.salesData = salesReportProvider.
                             GetSalesBefore(this.dateMain.Value).
                             ToList();
                         break;
-                    case Constants.AfterDate:
+                    case SearchOption.AfterDate:
                         this.salesData = salesReportProvider.
                             GetSalesAfter(this.dateMain.Value).
                             ToList();
                         break;
-                    case Constants.BetweenDates:
+                    case SearchOption.BetweenDates:
                         this.salesData = salesReportProvider.
                             GetSalesBetween(this.dateMain.Value, this.dateHelper.Value).
                             ToList();
                         break;
-                    default:
-                        MessageBox.Show("Not valid option.");
-                        break;
                 }
 
-                if (this.salesData.Count > 0)
-                {
-                    try
-                    {
-                        for (int i = 0; i < this.salesData.Count; i++)
-                        {
-                            int index = this.dataGridViewSales.Rows.Add();
-
-                            DataGridViewRow row = new DataGridViewRow();
-                            this.dataGridViewSales.Rows[index].Cells["columnProduct"].Value = salesData[i].Product.Name;
-                            this.dataGridViewSales.Rows[index].Cells["columnQuantity"].Value = salesData[i].Quantity;
-                            this.dataGridViewSales.Rows[index].Cells["columnPrice"].Value = salesData[i].UnitPrice;
-                            this.dataGridViewSales.Rows[index].Cells["columnLocation"].Value = salesData[i].Shop.Name;
-                            this.dataGridViewSales.Rows[index].Cells["columnDate"].Value = salesData[i].Date;
-                        }
-
-                        if (this.dataGridViewSales.Rows.Count > 0)
-                        {
-                            this.dataGridViewSales.Rows[0].Selected = true;
-                        }
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show(ex.Message);
-                    }
-                }
-                else
+                if (this.salesData.Count < 1)
                 {
                     MessageBox.Show("No results");
+                    return;
                 }
-            }
-            else
-            {
-                MessageBox.Show("The are no tables.");
+
+                for (int i = 0; i < this.salesData.Count; i++)
+                {
+                    int index = this.dataGridViewSales.Rows.Add();
+
+                    DataGridViewRow row = new DataGridViewRow();
+                    this.dataGridViewSales.Rows[index].Cells["columnProduct"].Value = salesData[i].Product.Name;
+                    this.dataGridViewSales.Rows[index].Cells["columnQuantity"].Value = salesData[i].Quantity;
+                    this.dataGridViewSales.Rows[index].Cells["columnPrice"].Value = salesData[i].UnitPrice;
+                    this.dataGridViewSales.Rows[index].Cells["columnLocation"].Value = salesData[i].Shop.Name;
+                    this.dataGridViewSales.Rows[index].Cells["columnDate"].Value = salesData[i].Date;
+                }
+
+                if (this.dataGridViewSales.Rows.Count > 0)
+                {
+                    this.dataGridViewSales.Rows[0].Selected = true;
+                }
             }
         }
 
@@ -186,16 +168,9 @@
             }
         }
 
-        private void SearchOption(object sender, EventArgs e)
+        private void OnComboChanged(object sender, EventArgs e)
         {
-            if (this.comboSearchBy.DataSource != null && this.comboSearchBy.Items.Count > 0)
-            {
-                this.dateHelper.Enabled = this.comboSearchBy.SelectedItem.ToString() != Constants.BetweenDates;
-            }
-            else
-            {
-                MessageBox.Show("The are no tables.");
-            }
+            this.dateHelper.Enabled = (SearchOption)this.comboSearchBy.SelectedItem == SearchOption.BetweenDates;
         }
     }
 }

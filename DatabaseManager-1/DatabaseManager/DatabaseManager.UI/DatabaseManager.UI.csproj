@@ -57,7 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Utilities\Constants.cs" />
+    <Compile Include="SearchOption.cs" />
     <Compile Include="DBManagerWindow.cs">
       <SubType>Form</SubType>
     </Compile>
