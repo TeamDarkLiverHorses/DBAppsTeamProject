@@ -34,9 +34,20 @@
                         Except(context.Shops.Select(s => s.Name)).
                         Select(s => new Shop() { Name = s });
                     context.Shops.AddRange(shopsToInsert);
+                    context.SaveChanges();
 
-                    var salesToInsert = this.extractor.Sales.
-                        Except(context.Sales);
+                    var salesToInsert = this.extractor.Sales
+                        .Select(s => new Sale
+                        {
+                            ProductId = context.Products.Where(p => p.Name == s.Product.Name).Select(p => p.Id).FirstOrDefault(),
+                            ShopId = context.Shops.Where(shop => shop.Name == s.Shop.Name).Select(shop => shop.Id).FirstOrDefault(),
+                            Quantity = s.Quantity,
+                            UnitPrice = s.UnitPrice,
+                            Date = s.Date
+                        })
+                        .Where(s => !context.Sales.Any(es => es.ProductId == s.ProductId && es.Date == s.Date && es.ShopId == s.ShopId))
+                        .ToList();
+
                     context.Sales.AddRange(salesToInsert);
 
                     context.SaveChanges();

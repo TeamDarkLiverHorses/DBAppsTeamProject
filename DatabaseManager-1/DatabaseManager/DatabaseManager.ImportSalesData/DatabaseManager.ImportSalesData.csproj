@@ -75,6 +75,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="SalesData\Sample-Sales-Reports 2.zip" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DatabaseManager.Models\DatabaseManager.Models.csproj">

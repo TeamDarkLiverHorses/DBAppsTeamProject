@@ -27,6 +27,7 @@ namespace DatabaseManager.Models
 
         public virtual Shop Shop { get; set; }
 
+        // Two sales are equal if they are on the same date, in the same shop and have the same product.
         public override bool Equals(object obj)
         {
             return this.Date == ((Sale)obj).Date &&
