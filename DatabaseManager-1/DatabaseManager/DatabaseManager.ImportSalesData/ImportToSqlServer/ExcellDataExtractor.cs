@@ -5,6 +5,7 @@
     using System.IO;
     using System.IO.Compression;
     using System.Globalization;
+    using System.Linq;
     using DatabaseManager.Models;
     using Excel;
 
@@ -176,8 +177,8 @@
                                 }
                                 else if (!inData)
                                 {
-                                    string[] nameParts = firstColumnValue.Split(new char[] { ' ', '"' }, StringSplitOptions.RemoveEmptyEntries);
-                                    shopName = nameParts[nameParts.Length - 1];
+                                    string[] nameParts = firstColumnValue.Split(new char[] { ' '}, StringSplitOptions.RemoveEmptyEntries);
+                                    shopName = string.Join(" ", nameParts.Skip(1).ToArray());
                                 }
 
                                 if (inData)
