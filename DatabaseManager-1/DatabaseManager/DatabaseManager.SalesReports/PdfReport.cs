@@ -48,7 +48,7 @@
 
             try
             {
-                using (fileStream = new FileStream(this.filePath, FileMode.OpenOrCreate, FileAccess.Write))
+                using (fileStream = new FileStream(this.filePath, FileMode.CreateNew, FileAccess.Write))
                 {
                     PdfWriter pdfWriter = PdfWriter.GetInstance(pdfDoc, fileStream);
                     pdfWriter.Open();
@@ -65,7 +65,7 @@
 
                         WriteHeader(
                             table,
-                            "Date:" + dateKey.Key.ToString("dd-MM-yyyy"),
+                            "Date: " + dateKey.Key.ToString("dd-MM-yyyy"),
                             5,
                             0,
                             TableDateHeaderColor);
@@ -129,7 +129,7 @@
                 HorizontalAlignment = headerAlignment,
                 BackgroundColor = color
             });
-            table.AddCell(new PdfPCell(new Phrase(sum.ToString()))
+            table.AddCell(new PdfPCell(new Phrase(string.Format("{0:# ###.00}", sum)))
             {
                 Colspan = 1,
                 HorizontalAlignment = headerAlignment,
@@ -147,9 +147,9 @@
 
             table.AddCell(new PdfPCell(new Phrase(product, cellFont)) { HorizontalAlignment = 0 });
             table.AddCell(new PdfPCell(new Phrase(quantity.ToString(), cellFont)) { HorizontalAlignment = 0 });
-            table.AddCell(new PdfPCell(new Phrase(price.ToString(), cellFont)) { HorizontalAlignment = 0 });
+            table.AddCell(new PdfPCell(new Phrase(string.Format("{0:# ###.00}", price), cellFont)) { HorizontalAlignment = 0 });
             table.AddCell(new PdfPCell(new Phrase(supermarket, cellFont)) { HorizontalAlignment = 0 });
-            table.AddCell(new PdfPCell(new Phrase((quantity * price).ToString(), cellFont)) { HorizontalAlignment = 0 });
+            table.AddCell(new PdfPCell(new Phrase(string.Format("{0:# ###.00}", (quantity * price)), cellFont)) { HorizontalAlignment = 0 });
         }
 
         private void WriteColumnNames(PdfPTable table, string col1Name, string col2Name, string col3Name, string col4Name, string col5Name)

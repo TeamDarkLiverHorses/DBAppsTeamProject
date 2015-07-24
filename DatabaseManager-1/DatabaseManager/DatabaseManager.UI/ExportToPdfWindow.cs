@@ -9,7 +9,7 @@
 
     public partial class ExportToPdfWindow : Form
     {
-        private const string ReportFilePath = @"\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.SalesReports\test.pdf";
+        private const string ReportFilePath = @"\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.SalesReports\SalesReports\test.pdf";
         //private const string reportFilePath = @"test.pdf";
         private List<Sale> salesData;
 
@@ -94,7 +94,5 @@
                 MessageBox.Show("The are no tables.");
             }
         }
-
-
     }
 }

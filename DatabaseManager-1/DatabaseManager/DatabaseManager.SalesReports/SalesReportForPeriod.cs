@@ -5,6 +5,7 @@
     using System.Linq;
     using DatabaseManager.Data;
     using DatabaseManager.Models;
+    using System.Data.Entity;
 
     public class SalesReportForPeriod
     {
@@ -18,7 +19,8 @@
         public List<Sale> GetSalesBetween(DateTime startDate, DateTime endDate)
         {
             return this.context.Sales
-                .Where(s => s.Date >= startDate && s.Date <= endDate)
+                .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate) &&
+                    DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
                 .OrderByDescending(s => s.Date)
                 .ThenBy(s => s.Product.Name)
                 .ToList();
@@ -27,7 +29,7 @@
         public List<Sale> GetSalesAfter(DateTime startDate)
         {
             return this.context.Sales
-                .Where(s => s.Date >= startDate)
+                .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate))
                 .OrderByDescending(s => s.Date)
                 .ThenBy(s => s.Product.Name)
                 .ToList();
@@ -36,7 +38,7 @@
         public List<Sale> GetSalesBefore(DateTime endDate)
         {
             return this.context.Sales
-                .Where(s => s.Date <= endDate)
+                .Where(s => DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
                 .OrderByDescending(s => s.Date)
                 .ThenBy(s => s.Product.Name)
                 .ToList();
@@ -45,7 +47,7 @@
         public List<Sale> GetSalesOn(DateTime date)
         {
             return this.context.Sales
-                .Where(s => s.Date.Year == date.Year && s.Date.Month == date.Month && s.Date.Day == date.Day)
+                .Where(s => DbFunctions.TruncateTime(s.Date) == DbFunctions.TruncateTime(date))
                 .OrderByDescending(s => s.Date)
                 .ThenBy(s => s.Product.Name)
                 .ToList();
