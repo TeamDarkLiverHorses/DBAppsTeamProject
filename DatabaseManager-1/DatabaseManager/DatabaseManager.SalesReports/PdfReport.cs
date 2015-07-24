@@ -29,7 +29,6 @@
         private string filePath;
         private float[] columnWidths = new float[] { 2f, 1f, 1f, 2f, 1f };
 
-
         public PdfReport(string filePath)
         {
             this.filePath = filePath;

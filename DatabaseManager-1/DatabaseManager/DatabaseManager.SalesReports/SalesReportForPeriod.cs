@@ -7,7 +7,7 @@
     using DatabaseManager.Models;
     using System.Data.Entity;
 
-    public class SalesReportForPeriod
+    public class SalesReportForPeriod : IDisposable
     {
         private SupermarketsContext context;
 
@@ -16,41 +16,42 @@
             this.context = new SupermarketsContext();
         }
 
-        public List<Sale> GetSalesBetween(DateTime startDate, DateTime endDate)
+        public IEnumerable<Sale> GetSalesBetween(DateTime startDate, DateTime endDate)
         {
             return this.context.Sales
                 .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate) &&
                     DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
                 .OrderByDescending(s => s.Date)
-                .ThenBy(s => s.Product.Name)
-                .ToList();
+                .ThenBy(s => s.Product.Name);
         }
 
-        public List<Sale> GetSalesAfter(DateTime startDate)
+        public IEnumerable<Sale> GetSalesAfter(DateTime startDate)
         {
             return this.context.Sales
                 .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate))
                 .OrderByDescending(s => s.Date)
-                .ThenBy(s => s.Product.Name)
-                .ToList();
+                .ThenBy(s => s.Product.Name);
         }
 
-        public List<Sale> GetSalesBefore(DateTime endDate)
+        public IEnumerable<Sale> GetSalesBefore(DateTime endDate)
         {
             return this.context.Sales
                 .Where(s => DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
                 .OrderByDescending(s => s.Date)
-                .ThenBy(s => s.Product.Name)
-                .ToList();
+                .ThenBy(s => s.Product.Name);
         }
 
-        public List<Sale> GetSalesOn(DateTime date)
+        public IEnumerable<Sale> GetSalesOn(DateTime date)
         {
             return this.context.Sales
                 .Where(s => DbFunctions.TruncateTime(s.Date) == DbFunctions.TruncateTime(date))
                 .OrderByDescending(s => s.Date)
-                .ThenBy(s => s.Product.Name)
-                .ToList();
+                .ThenBy(s => s.Product.Name);
+        }
+
+        public void Dispose()
+        {
+            this.context.Dispose();
         }
     }
 }

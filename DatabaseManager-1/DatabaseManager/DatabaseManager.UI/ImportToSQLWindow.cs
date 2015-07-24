@@ -4,6 +4,7 @@
     using System.Windows.Forms;
     using DatabaseManager.ImportSalesData.ImportToSqlServer;
     using DatabaseManager.ImportSalesData.Utilities;
+    using System.Threading.Tasks;
 
     public partial class ImportToSQLWindow : Form
     {
@@ -23,60 +24,92 @@
 
         private void ImportFromExcel(object sender, EventArgs e)
         {
-            try
+            
+            string filePath = string.Empty;
+            using (OpenFileDialog openZip = new OpenFileDialog())
             {
-                string filePath = string.Empty;
-                using (OpenFileDialog openZip = new OpenFileDialog())
-                {
-                    openZip.Filter = "Zip file (*.zip)|*.zip";
+                openZip.Filter = "Zip file (*.zip)|*.zip";
 
-                    if (openZip.ShowDialog() == DialogResult.OK)
+                if (openZip.ShowDialog() == DialogResult.OK)
+                {
+                    filePath = openZip.FileName;
+                }
+            }
+
+            if (filePath != string.Empty)
+            {
+                // We run those procs in a new thread so our window will not/must not/should not/cannot/is not going to freeze!
+                Task.Run(() =>
+                {
+                    try
                     {
-                        filePath = openZip.FileName;
+                        listInfo.Invoke((MethodInvoker)(() => listInfo.Items.Add("Reading file...")));
+
+                        ExcellDataExtractor extractor = new ExcellDataExtractor(filePath);
+                        extractor.Read();
+
+                        listInfo.Invoke((MethodInvoker)(() =>
+                        {
+                            this.listInfo.Items.Add("Building sales...");
+                            this.listInfo.Items.Add(string.Format("There are {0} sale(s) for import.", extractor.Sales.Count));
+                            this.listInfo.Items.Add(string.Format("There are {0} shop(s) for import.", extractor.Shops.Count));
+                            this.listInfo.Items.Add("Importing...");
+                        }));
+
+                        // Throws error
+                        ExcelDataImporter importer = new ExcelDataImporter(extractor);
+                        int importedSalesCount = importer.Import();
+
+                        listInfo.Invoke((MethodInvoker)(() =>
+                        {
+                            this.listInfo.Items.Add(string.Format(Messages.ImportedSales, importedSalesCount));
+                            this.listInfo.Items.Add("Done!!!");
+                        }));
                     }
-                }
-
-                if (filePath != string.Empty)
-                {
-                    listInfo.Items.Add("Reading file...");
-
-                    ExcellDataExtractor extractor = new ExcellDataExtractor(filePath);
-                    extractor.Read();
-
-                    this.listInfo.Items.Add("Building sales...");
-                    this.listInfo.Items.Add(string.Format("There are {0} sale(s) for import.", extractor.Sales.Count));
-                    this.listInfo.Items.Add(string.Format("There are {0} shop(s) for import.", extractor.Shops.Count));
-                    this.listInfo.Items.Add("Importing...");
-
-                    // Throws error
-                    ExcelDataImporter importer = new ExcelDataImporter(extractor);
-                    int importedSalesCount = importer.Import();
-
-                    this.listInfo.Items.Add(string.Format(Messages.ImportedSales, importedSalesCount));
-                    this.listInfo.Items.Add("Done!!!");
-                }
-
-            }
-            catch (FormatException formatEx)
-            {
-                MessageBox.Show(formatEx.Message);
-                this.listInfo.Items.Add(formatEx.Message);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-                this.listInfo.Items.Add(ex.Message);
+                    catch (FormatException formatEx)
+                    {
+                        MessageBox.Show(formatEx.Message);
+                        listInfo.Invoke((MethodInvoker)(() =>
+                        {
+                            this.listInfo.Items.Add(formatEx.Message);
+                        }));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                        listInfo.Invoke((MethodInvoker)(() =>
+                        {
+                            this.listInfo.Items.Add(ex.Message);
+                        }));
+                    }
+                });
             }
         }
 
         private void ImportFromOracle(object sender, EventArgs e)
         {
-            var oracleImporter = new OracleImporter();
-            listInfo.Items.Add(oracleImporter.ImportVendors());
-            listInfo.Items.Add(oracleImporter.ImportMeasures());
-            listInfo.Items.Add(oracleImporter.ImportCategories());
-            listInfo.Items.Add(oracleImporter.ImportParentCategories());
-            listInfo.Items.Add(oracleImporter.ImportProducts());
+            // We run those procs in a new thread so our window will not/must not/should not/cannot/is not going to freeze!
+            Task.Run(() =>
+            {
+                var oracleImporter = new OracleImporter();
+                string vendors = oracleImporter.ImportVendors();
+                string measures = oracleImporter.ImportMeasures();
+                string categories = oracleImporter.ImportCategories();
+                string parentCategories = oracleImporter.ImportParentCategories();
+                string products = oracleImporter.ImportProducts();
+
+                listInfo.Invoke((MethodInvoker)(() =>
+                {
+                    listInfo.Items.AddRange(new object[]
+                    {
+                        vendors,
+                        measures,
+                        categories,
+                        parentCategories,
+                        products
+                    });
+                }));
+            });
         }
 
         private void ClearData(object sender, EventArgs e)

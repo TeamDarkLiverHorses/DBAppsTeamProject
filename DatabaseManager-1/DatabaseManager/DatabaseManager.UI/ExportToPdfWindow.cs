@@ -6,6 +6,7 @@
     using System.Collections.Generic;
     using DatabaseManager.Models;
     using DatabaseManager.SalesReports;
+    using System.Linq;
 
     public partial class ExportToPdfWindow : Form
     {
@@ -25,43 +26,40 @@
 
         private void Search(object sender, EventArgs e)
         {
-            if (this.comboSearchBy.DataSource != null && this.comboSearchBy.Items.Count > 0)
+            if (this.comboSearchBy.DataSource == null || this.comboSearchBy.Items.Count < 1)
+            {
+                MessageBox.Show("The are no tables.");
+                return;
+            }
+
+            using (var salesReportProvider = new SalesReportForPeriod())
             {
                 switch (this.comboSearchBy.SelectedItem.ToString())
                 {
                     case Constants.OnDate:
-                        {
-                            DateTime date = this.dateMain.Value;
-                            this.salesData = new SalesReportForPeriod().GetSalesOn(date);
-                        }
+                        this.salesData = salesReportProvider.
+                            GetSalesOn(this.dateMain.Value).
+                            ToList();
                         break;
                     case Constants.BeforeDate:
-                        {
-                            DateTime date = this.dateMain.Value;
-                            salesData = new SalesReportForPeriod().GetSalesBefore(date);
-                        }
+                        this.salesData = salesReportProvider.
+                            GetSalesBefore(this.dateMain.Value).
+                            ToList();
                         break;
                     case Constants.AfterDate:
-                        {
-                            DateTime startDate = this.dateMain.Value;
-                            this.salesData = new SalesReportForPeriod().GetSalesAfter(startDate);
-                        }
+                        this.salesData = salesReportProvider.
+                            GetSalesAfter(this.dateMain.Value).
+                            ToList();
                         break;
                     case Constants.BetweenDates:
-                        {
-                            DateTime startDate = this.dateMain.Value;
-                            DateTime endDate = this.dateHelper.Value;
-                            this.salesData = new SalesReportForPeriod().GetSalesBetween(startDate, endDate);
-                        }
+                        this.salesData = salesReportProvider.
+                            GetSalesBetween(this.dateMain.Value, this.dateHelper.Value).
+                            ToList();
                         break;
                     default:
                         MessageBox.Show("Not valid option.");
                         break;
                 }
-            }
-            else
-            {
-                MessageBox.Show("The are no tables.");
             }
         }
 
@@ -80,14 +78,7 @@
         {
             if (this.comboSearchBy.DataSource != null && this.comboSearchBy.Items.Count > 0)
             {
-                if (this.comboSearchBy.SelectedItem.ToString() != Constants.BetweenDates)
-                {
-                    this.dateHelper.Enabled = false;
-                }
-                else
-                {
-                    this.dateHelper.Enabled = true;
-                }
+                this.dateHelper.Enabled = this.comboSearchBy.SelectedItem.ToString() != Constants.BetweenDates;
             }
             else
             {
