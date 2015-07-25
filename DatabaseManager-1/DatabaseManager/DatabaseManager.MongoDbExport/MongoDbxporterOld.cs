@@ -1,24 +1,17 @@
 ﻿namespace DatabaseManager.MongoDbExport
 {
+    using DatabaseManager.SalesReports;
+    using MongoDB;
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
-    using DatabaseManager.SalesReports;
-    using MongoDB.Bson;
-    using MongoDB.Driver;
-    
-    public class MongoDbExporter
+
+    public class MongoDbExporterOld
     {
-        private string connectionUri = "mongodb://admin:123456@ds036648.mongolab.com:36648/supermarkets";
-        private MongoClient mnogoClient;
-        private IMongoDatabase supermarketsDb;
         private SalesReportForPeriod reportGenerator;
 
-        public MongoDbExporter()
+        public MongoDbExporterOld()
         {
-            this.mnogoClient = new MongoClient(this.connectionUri);
-            this.supermarketsDb = this.mnogoClient.GetDatabase("supermarkets");
             this.reportGenerator = new SalesReportForPeriod();
         }
 
@@ -50,30 +43,40 @@
             return productSales.Count();
         }
 
-        async private Task ExportToMongo(IEnumerable<ProductSales> sales)
+        private int ExportToMongo(IEnumerable<ProductSales> sales)
         {
-            List<BsonDocument> documentsToExport = new List<BsonDocument>();
-            
+            List<MongoDB.Document> documentsToExport = new List<MongoDB.Document>();
+
             foreach (var entry in sales)
             {
-                var newDoc = CreateBson(entry);
-                documentsToExport.Add(newDoc);
+                var doc = CreateDocument(entry);
+                documentsToExport.Add(doc);
             }
 
-            var collection = this.supermarketsDb.GetCollection<BsonDocument>("SalesByProductReports");
-            await collection.InsertManyAsync(documentsToExport);   
+            var mongo = new Mongo();
+            mongo.Connect();
+            var db = mongo.GetDatabase("supermarkets");
+
+            var collection = db.GetCollection("SalesByProductReports");
+            collection.Insert(documentsToExport);
+
+            mongo.Disconnect();
+
+            var jsonCreator = new JsonCreator();
+            jsonCreator.WriteJsonFiles(documentsToExport);
+
+            return documentsToExport.Count();
         }
 
-        private BsonDocument CreateBson(ProductSales productSales)
+        private MongoDB.Document CreateDocument(ProductSales productSales)
         {
-            var document = new BsonDocument
-            {
-                { "product-id" , productSales.ProductId },
-                { "product-name" , productSales.ProductName },
-                { "vendor-name" , productSales.VendorName },
-                { "total-quantity-sold" , productSales.TotalQuantitySold },
-                { "total-incomes" , productSales.TotalIncome }
-            };
+            var document = new MongoDB.Document();
+            document.Add("product-id" , productSales.ProductId);
+            document.Add("product-name" , productSales.ProductName );
+            document.Add("vendor-name" , productSales.VendorName);
+            document.Add("total-quantity-sold" , productSales.TotalQuantitySold);
+            document.Add("total-incomes" , productSales.TotalIncome );
+            
             return document;
         }
     }

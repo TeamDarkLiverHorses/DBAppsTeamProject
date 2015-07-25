@@ -61,11 +61,11 @@
                     TotalQuantitySold = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate) &&
                         DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
-                        .Sum(s => s.Quantity)).ToString() ?? "0",
+                        .Sum(s => s.Quantity)).ToString() ?? "0.00",
                     TotalIncome = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate) &&
                         DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
-                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0"
+                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0.00"
                 });
         }
 
@@ -80,10 +80,10 @@
                     VendorName = p.Vendor.Name,
                     TotalQuantitySold = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate))
-                        .Sum(s => s.Quantity)).ToString() ?? "0",
+                        .Sum(s => s.Quantity)).ToString() ?? "0.00",
                     TotalIncome = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate))
-                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0"
+                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0.00"
                 });
         }
 
@@ -98,10 +98,10 @@
                     VendorName = p.Vendor.Name,
                     TotalQuantitySold = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
-                        .Sum(s => s.Quantity)).ToString() ?? "0",
+                        .Sum(s => s.Quantity)).ToString() ?? "0.00",
                     TotalIncome = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
-                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0"
+                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0.00"
                 });
                 
         }
@@ -117,10 +117,10 @@
                     VendorName = p.Vendor.Name,
                     TotalQuantitySold = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) == DbFunctions.TruncateTime(date))
-                        .Sum(s => s.Quantity)).ToString() ?? "0",
+                        .Sum(s => s.Quantity)).ToString() ?? "0.00",
                     TotalIncome = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) == DbFunctions.TruncateTime(date))
-                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0"
+                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0.00"
                 });
         }
 

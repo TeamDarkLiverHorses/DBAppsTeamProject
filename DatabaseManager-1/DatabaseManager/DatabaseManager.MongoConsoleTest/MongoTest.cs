@@ -5,12 +5,16 @@
     using System.Linq;
     using DatabaseManager.MongoDbExport;
     using DatabaseManager.SalesReports;
+    using MongoDB;
+    using MongoDB.Linq;
+    using MongoDB.Bson;
+    using MongoDB.Driver;
 
     public class MongoTest
     {
         public static void Main()
         {
-            MongoDbExporter exporter = new MongoDbExporter();
+            MongoDbExporterOld exporter = new MongoDbExporterOld();
             int recordsAffected = exporter.ExportProducSalesBefore(DateTime.Now);
             Console.WriteLine("Exported {0} documents...", recordsAffected);
         }
