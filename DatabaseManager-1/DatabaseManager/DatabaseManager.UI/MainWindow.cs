@@ -17,9 +17,7 @@
 
         public void StartOracleForm(object sender, EventArgs e)
         {
-            DBManagerWindow frmOracle = new DBManagerWindow();
-
-            using (frmOracle)
+            using (var frmOracle = new DBManagerWindow())
             {
                 frmOracle.ShowDialog(this);
             }
@@ -27,9 +25,7 @@
 
         public void ExportOracleDB(object sender, EventArgs e)
         {
-            ImportToSQLWindow importWindow = new ImportToSQLWindow();
-
-            using (importWindow)
+            using (var importWindow = new ImportToSQLWindow())
             {
                 importWindow.ShowDialog(this);
             }
@@ -37,9 +33,7 @@
 
         public void ExportToPdf(object sender, EventArgs e)
         {
-            ExportToPdfWindow exportToPdfWindow = new ExportToPdfWindow();
-
-            using (exportToPdfWindow)
+            using (var exportToPdfWindow = new ExportToPdfWindow())
             {
                 exportToPdfWindow.ShowDialog(this);
             }

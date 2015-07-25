@@ -34,7 +34,7 @@
             this.statusMain = new System.Windows.Forms.StatusStrip();
             this.pnlMain = new System.Windows.Forms.Panel();
             this.btnExcel = new System.Windows.Forms.Button();
-            this.listInfo = new System.Windows.Forms.ListBox();
+            this.logList = new System.Windows.Forms.ListBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnExport = new System.Windows.Forms.Button();
             this.menu.SuspendLayout();
@@ -76,7 +76,7 @@
             // pnlMain
             // 
             this.pnlMain.Controls.Add(this.btnExcel);
-            this.pnlMain.Controls.Add(this.listInfo);
+            this.pnlMain.Controls.Add(this.logList);
             this.pnlMain.Controls.Add(this.btnClear);
             this.pnlMain.Controls.Add(this.btnExport);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -95,17 +95,17 @@
             this.btnExcel.Text = "Import From &Excel";
             this.btnExcel.UseVisualStyleBackColor = true;
             // 
-            // listInfo
+            // logList
             // 
-            this.listInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.logList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.listInfo.FormattingEnabled = true;
-            this.listInfo.Location = new System.Drawing.Point(12, 36);
-            this.listInfo.Name = "listInfo";
-            this.listInfo.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listInfo.Size = new System.Drawing.Size(429, 264);
-            this.listInfo.TabIndex = 2;
+            this.logList.FormattingEnabled = true;
+            this.logList.Location = new System.Drawing.Point(12, 36);
+            this.logList.Name = "logList";
+            this.logList.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.logList.Size = new System.Drawing.Size(429, 264);
+            this.logList.TabIndex = 2;
             // 
             // btnClear
             // 
@@ -153,7 +153,7 @@
         private System.Windows.Forms.ToolStripMenuItem mExit;
         private System.Windows.Forms.StatusStrip statusMain;
         private System.Windows.Forms.Panel pnlMain;
-        private System.Windows.Forms.ListBox listInfo;
+        private System.Windows.Forms.ListBox logList;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnExport;
         private System.Windows.Forms.Button btnExcel;

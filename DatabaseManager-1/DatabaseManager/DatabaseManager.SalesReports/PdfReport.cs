@@ -34,7 +34,7 @@
             this.filePath = filePath;
         }
 
-        public void Create(List<Sale> sales)
+        public void Create(IEnumerable<Sale> sales)
         {
             Document pdfDoc = new Document(PageSize.A4, MarginLeft, MarginRight, MarginTop, MarginBottom);
 

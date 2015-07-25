@@ -1,15 +1,14 @@
 ﻿namespace DatabaseManager.UI
 {
-    using System;
-    using System.Windows.Forms;
-    using System.Collections.Generic;
     using DatabaseManager.Models;
     using DatabaseManager.SalesReports;
+    using System;
     using System.Linq;
+    using System.Windows.Forms;
 
     public partial class ExportToPdfWindow : Form
     {
-        private List<Sale> salesData;
+        private Sale[] sales = null;
 
         public ExportToPdfWindow()
         {
@@ -17,73 +16,75 @@
             this.comboSearchBy.SelectedIndexChanged += OnComboChanged;
             this.comboSearchBy.DataSource = Enum.GetValues(typeof(SearchOption));
             this.btnSearch.Click += Search;
-            this.btnExport.Click += ExportToPdf;
-            this.btnExportSelection.Click += ExportToPdfSelection;
-            this.salesData = new List<Sale>();
+            this.btnExport.Click += ExportToPDF;
+            this.btnExportSelection.Click += ExportSelectionToPDF;
+        }
+
+        private void UpdateSalesGrid()
+        {
+            System.Diagnostics.Debug.Assert(this.sales != null);
+
+            this.dataGridViewSales.Rows.Clear();
+            foreach (var sale in this.sales)
+            {
+                int index = this.dataGridViewSales.Rows.Add();
+                var row = this.dataGridViewSales.Rows[index];
+                row.Cells["columnProduct"].Value = sale.Product.Name;
+                row.Cells["columnQuantity"].Value = sale.Quantity;
+                row.Cells["columnPrice"].Value = sale.UnitPrice;
+                row.Cells["columnLocation"].Value = sale.Shop.Name;
+                row.Cells["columnDate"].Value = sale.Date;
+            }
+
+            if (this.sales.Count() == 0)
+            {
+                MessageBox.Show("No results");
+            }
+            else
+            {
+                this.dataGridViewSales.Rows[0].Selected = true;
+            }
         }
 
         private void Search(object sender, EventArgs e)
         {
-            if (this.comboSearchBy.DataSource == null || this.comboSearchBy.Items.Count < 1)
+            var searchOption = (SearchOption)this.comboSearchBy.SelectedItem;
+            System.Threading.Tasks.Task.Run(() =>
             {
-                MessageBox.Show("The are no tables.");
-                return;
-            }
-
-            using (var salesReportProvider = new SalesReportForPeriod())
-            {
-                switch ((SearchOption)this.comboSearchBy.SelectedItem)
+                using (var salesReportProvider = new SalesReportForPeriod())
                 {
-                    case SearchOption.ExactDate:
-                        this.salesData = salesReportProvider.
-                            GetSalesOn(this.dateMain.Value).
-                            ToList();
-                        break;
-                    case SearchOption.BeforeDate:
-                        this.salesData = salesReportProvider.
-                            GetSalesBefore(this.dateMain.Value).
-                            ToList();
-                        break;
-                    case SearchOption.AfterDate:
-                        this.salesData = salesReportProvider.
-                            GetSalesAfter(this.dateMain.Value).
-                            ToList();
-                        break;
-                    case SearchOption.BetweenDates:
-                        this.salesData = salesReportProvider.
-                            GetSalesBetween(this.dateMain.Value, this.dateHelper.Value).
-                            ToList();
-                        break;
-                }
+                    switch (searchOption)
+                    {
+                        case SearchOption.ExactDate:
+                            this.sales = salesReportProvider.
+                                GetSalesOn(this.dateMain.Value).
+                                ToArray();
+                            break;
+                        case SearchOption.BeforeDate:
+                            this.sales = salesReportProvider.
+                                GetSalesBefore(this.dateMain.Value).
+                                ToArray();
+                            break;
+                        case SearchOption.AfterDate:
+                            this.sales = salesReportProvider.
+                                GetSalesAfter(this.dateMain.Value).
+                                ToArray();
+                            break;
+                        case SearchOption.BetweenDates:
+                            this.sales = salesReportProvider.
+                                GetSalesBetween(this.dateMain.Value, this.dateHelper.Value).
+                                ToArray();
+                            break;
+                    }
 
-                if (this.salesData.Count < 1)
-                {
-                    MessageBox.Show("No results");
-                    return;
+                    this.dataGridViewSales.Invoke((Action)UpdateSalesGrid);
                 }
-
-                for (int i = 0; i < this.salesData.Count; i++)
-                {
-                    int index = this.dataGridViewSales.Rows.Add();
-
-                    DataGridViewRow row = new DataGridViewRow();
-                    this.dataGridViewSales.Rows[index].Cells["columnProduct"].Value = salesData[i].Product.Name;
-                    this.dataGridViewSales.Rows[index].Cells["columnQuantity"].Value = salesData[i].Quantity;
-                    this.dataGridViewSales.Rows[index].Cells["columnPrice"].Value = salesData[i].UnitPrice;
-                    this.dataGridViewSales.Rows[index].Cells["columnLocation"].Value = salesData[i].Shop.Name;
-                    this.dataGridViewSales.Rows[index].Cells["columnDate"].Value = salesData[i].Date;
-                }
-
-                if (this.dataGridViewSales.Rows.Count > 0)
-                {
-                    this.dataGridViewSales.Rows[0].Selected = true;
-                }
-            }
+            });
         }
 
-        private void ExportToPdf(object sender, EventArgs e)
+        private void ExportToPDF(object sender, EventArgs e)
         {
-            if (this.salesData.Count == 0)
+            if (this.sales.Length == 0)
             {
                 MessageBox.Show("The sales table is empty.");
             }
@@ -93,79 +94,53 @@
             }
         }
 
-        private void ExportToPdfSelection(object sender, EventArgs e)
+        private void ExportSelectionToPDF(object sender, EventArgs e)
         {
-            if (this.salesData.Count == 0 || this.dataGridViewSales.SelectedRows.Count == 0)
+            if (this.sales.Length == 0)
             {
                 MessageBox.Show("The sales table is empty.");
+                return;
             }
-            else
+
+            if (this.dataGridViewSales.SelectedRows.Count == 0)
             {
-                if (this.dataGridViewSales.SelectedRows.Count == 0)
-                {
-                    MessageBox.Show("No selection.");
-                }
-                else
-                {
-                    List<Sale> selectedSales = new List<Sale>(this.dataGridViewSales.SelectedRows.Count);
-
-                    int[] indexes = new int[this.dataGridViewSales.SelectedRows.Count];
-
-                    for (int i = 0; i < indexes.Length; i++)
-                    {
-                        indexes[i] = dataGridViewSales.SelectedRows[i].Index;
-                    }
-
-                    for (int a = 0; a < indexes.Length - 1; a++)
-                    {
-                        for (int b = a + 1; b < indexes.Length; b++)
-                        {
-                            if (indexes[b] < indexes[a])
-                            {
-                                int temp = indexes[a];
-                                indexes[a] = indexes[b];
-                                indexes[b] = temp;
-                            }
-                        }
-                    }
-
-                    for (int i = 0; i < indexes.Length; i++)
-                    {
-                        selectedSales.Add(this.salesData[indexes[i]]);
-                    }
-
-                    ExportPDF(selectedSales);
-                }
+                MessageBox.Show("No selection.");
+                return;
             }
+
+            int selectedSalesCount = this.dataGridViewSales.SelectedRows.Count;
+            var selectedSales = new Sale[selectedSalesCount];
+            for (int i = 0; i < selectedSalesCount; i++)
+            {
+                int selectedRowIndex = this.dataGridViewSales.SelectedRows[i].Index;
+                selectedSales[i] = this.sales[selectedRowIndex];
+            }
+
+            ExportPDF(selectedSales);
         }
 
-        private void ExportPDF(List<Sale> sales = null)
+        private void ExportPDF(Sale[] sales = null)
         {
-            if (sales == null)
-            {
-                sales = this.salesData;
-            }
-
             string filePath = string.Empty;
-
             using (SaveFileDialog saveFile = new SaveFileDialog())
             {
                 saveFile.Filter = "PDF (*.pdf)|*.pdf";
-
                 if (saveFile.ShowDialog() == DialogResult.OK)
                 {
                     filePath = saveFile.FileName;
                 }
+                else
+                {
+                    return;
+                }
             }
 
-            if (filePath != string.Empty)
+            System.Threading.Tasks.Task.Run(() =>
             {
-                PdfReport report = new PdfReport(filePath);
-
-                report.Create(sales);
-
+                var report = new PdfReport(filePath);
+                report.Create(sales ?? this.sales);
                 MessageBox.Show("Done!");
-            }
+            });
         }
 
         private void OnComboChanged(object sender, EventArgs e)
