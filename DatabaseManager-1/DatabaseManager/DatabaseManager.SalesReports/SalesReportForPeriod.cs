@@ -58,14 +58,14 @@
                     ProductId = p.Id,
                     ProductName = p.Name,
                     VendorName = p.Vendor.Name,
-                    TotalQuantitySold = p.Sales
+                    TotalQuantitySold = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate) &&
                         DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
-                        .Sum(s => s.Quantity),
-                    TotalIncome = p.Sales
+                        .Sum(s => s.Quantity)).ToString() ?? "0",
+                    TotalIncome = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate) &&
                         DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
-                        .Sum(s => s.Quantity * s.UnitPrice)
+                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0"
                 });
         }
 
@@ -78,12 +78,12 @@
                     ProductId = p.Id,
                     ProductName = p.Name,
                     VendorName = p.Vendor.Name,
-                    TotalQuantitySold = p.Sales
+                    TotalQuantitySold = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate))
-                        .Sum(s => s.Quantity),
-                    TotalIncome = p.Sales
+                        .Sum(s => s.Quantity)).ToString() ?? "0",
+                    TotalIncome = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) >= DbFunctions.TruncateTime(startDate))
-                        .Sum(s => s.Quantity * s.UnitPrice)
+                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0"
                 });
         }
 
@@ -96,13 +96,14 @@
                     ProductId = p.Id,
                     ProductName = p.Name,
                     VendorName = p.Vendor.Name,
-                    TotalQuantitySold = p.Sales
+                    TotalQuantitySold = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
-                        .Sum(s => s.Quantity),
-                    TotalIncome = p.Sales
+                        .Sum(s => s.Quantity)).ToString() ?? "0",
+                    TotalIncome = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) <= DbFunctions.TruncateTime(endDate))
-                        .Sum(s => s.Quantity * s.UnitPrice)
+                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0"
                 });
+                
         }
 
         public IEnumerable<ProductSales> GetProductSalesOn(DateTime date)
@@ -114,12 +115,12 @@
                     ProductId = p.Id,
                     ProductName = p.Name,
                     VendorName = p.Vendor.Name,
-                    TotalQuantitySold = p.Sales
+                    TotalQuantitySold = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) == DbFunctions.TruncateTime(date))
-                        .Sum(s => s.Quantity),
-                    TotalIncome = p.Sales
+                        .Sum(s => s.Quantity)).ToString() ?? "0",
+                    TotalIncome = (p.Sales
                         .Where(s => DbFunctions.TruncateTime(s.Date) == DbFunctions.TruncateTime(date))
-                        .Sum(s => s.Quantity * s.UnitPrice)
+                        .Sum(s => s.Quantity * s.UnitPrice)).ToString() ?? "0"
                 });
         }
 
