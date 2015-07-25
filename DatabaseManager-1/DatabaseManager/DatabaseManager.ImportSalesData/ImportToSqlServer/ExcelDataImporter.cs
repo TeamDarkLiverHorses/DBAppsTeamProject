@@ -1,16 +1,16 @@
 ﻿namespace DatabaseManager.ImportSalesData.ImportToSqlServer
 {
+    using DatabaseManager.Data;
+    using DatabaseManager.ImportSalesData.Utilities;
+    using DatabaseManager.Models;
     using System;
     using System.Linq;
-    using DatabaseManager.Data;
-    using DatabaseManager.Models;
-    using DatabaseManager.ImportSalesData.Utilities;
 
     public class ExcelDataImporter
     {
-        private ExcellDataExtractor extractor;
+        private ExcelDataExtractor extractor;
 
-        public ExcelDataImporter(ExcellDataExtractor extractor)
+        public ExcelDataImporter(ExcelDataExtractor extractor)
         {
             this.extractor = extractor;
         }
@@ -45,8 +45,7 @@
                             UnitPrice = s.UnitPrice,
                             Date = s.Date
                         })
-                        .Where(s => !context.Sales.Any(es => es.ProductId == s.ProductId && es.Date == s.Date && es.ShopId == s.ShopId))
-                        .ToList();
+                        .Where(s => !context.Sales.Any(es => es.ProductId == s.ProductId && es.Date == s.Date && es.ShopId == s.ShopId));
 
                     context.Sales.AddRange(salesToInsert);
 

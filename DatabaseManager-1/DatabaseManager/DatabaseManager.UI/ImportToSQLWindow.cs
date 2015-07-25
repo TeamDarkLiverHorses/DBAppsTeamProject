@@ -52,7 +52,7 @@
                 try
                 {
                     Log("Reading file...");
-                    var extractor = new ExcellDataExtractor(fileName);
+                    var extractor = new ExcelDataExtractor(fileName);
                     extractor.Read();
 
                     Log("Building sales...");

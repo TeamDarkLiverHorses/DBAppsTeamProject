@@ -2,7 +2,7 @@
 {
     using System;
 
-    public class NativeOracleSQLCommands
+    public static class NativeOracleSQLCommands
     {
         public static readonly string GetVendors = "SELECT NAME FROM VENDORS";
         public static readonly string GetMeasures = "SELECT NAME FROM MEASURES";

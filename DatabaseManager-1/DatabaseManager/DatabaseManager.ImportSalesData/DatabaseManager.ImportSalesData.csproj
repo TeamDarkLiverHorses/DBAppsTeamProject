@@ -63,7 +63,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ImportToSqlServer\ExcelDataImporter.cs" />
-    <Compile Include="ImportToSqlServer\ExcellDataExtractor.cs" />
+    <Compile Include="ImportToSqlServer\ExcelDataExtractor.cs" />
     <Compile Include="ImportToSqlServer\OracleImporter.cs" />
     <Compile Include="NativeSQL\NativeOracleSQLCommands.cs" />
     <Compile Include="OracleConnectionsDB\OracleDBAction.cs" />
