@@ -1,4 +1,4 @@
-﻿namespace DatabaseManager.XML
+﻿namespace DatabaseManager.XML.Serialization
 {
     internal class UTF8StringWriter : System.IO.StringWriter
     {

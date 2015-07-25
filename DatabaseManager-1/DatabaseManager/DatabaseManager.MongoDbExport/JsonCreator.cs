@@ -14,21 +14,21 @@
     {
         private const string FilePath = @"\\psf\Dropbox\Personal\SoftUni\Level 3\DB Apps\team project\DBAppsTeamProject\DatabaseManager-1\DatabaseManager\DatabaseManager.MongoDbExport\JsonReports\";
 
-        public int WriteJsonFiles(List<MongoDB.Document> documents)
+        public int WriteJsonFiles(List<dynamic /*MongoDB.Document*/> documents)
         {
             int filesCount = 0;
 
-            foreach (var document in documents)
-            {
-                string fileName = FilePath + document.ToDictionary()["product-id"] + ".json";
-                using (FileStream fs = File.Open(fileName, FileMode.OpenOrCreate))
-                using (StreamWriter sw = new StreamWriter(fs))
-                using (JsonWriter jw = new JsonWriter(sw))
-                {
-                    BsonSerializer.Serialize(jw, document);
-                    filesCount++;
-                }
-            }
+            //foreach (var document in documents)
+            //{
+            //    string fileName = FilePath + document.ToDictionary()["product-id"] + ".json";
+            //    using (FileStream fs = File.Open(fileName, FileMode.OpenOrCreate))
+            //    using (StreamWriter sw = new StreamWriter(fs))
+            //    using (JsonWriter jw = new JsonWriter(sw))
+            //    {
+            //        BsonSerializer.Serialize(jw, document);
+            //        filesCount++;
+            //    }
+            //}
             return filesCount;
         }
     }

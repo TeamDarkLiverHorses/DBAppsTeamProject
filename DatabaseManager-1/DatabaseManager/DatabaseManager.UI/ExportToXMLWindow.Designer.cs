@@ -34,11 +34,12 @@
             this.logList = new System.Windows.Forms.ListBox();
             this.endDateControl = new System.Windows.Forms.DateTimePicker();
             this.startDateControl = new System.Windows.Forms.DateTimePicker();
+            this.importFromXMLBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnExportSales
             // 
-            this.btnExportSales.Location = new System.Drawing.Point(264, 18);
+            this.btnExportSales.Location = new System.Drawing.Point(174, 18);
             this.btnExportSales.Name = "btnExportSales";
             this.btnExportSales.Size = new System.Drawing.Size(90, 48);
             this.btnExportSales.TabIndex = 3;
@@ -78,7 +79,7 @@
             this.endDateControl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.endDateControl.Location = new System.Drawing.Point(58, 46);
             this.endDateControl.Name = "endDateControl";
-            this.endDateControl.Size = new System.Drawing.Size(200, 20);
+            this.endDateControl.Size = new System.Drawing.Size(110, 20);
             this.endDateControl.TabIndex = 11;
             // 
             // startDateControl
@@ -86,14 +87,24 @@
             this.startDateControl.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.startDateControl.Location = new System.Drawing.Point(58, 18);
             this.startDateControl.Name = "startDateControl";
-            this.startDateControl.Size = new System.Drawing.Size(200, 20);
+            this.startDateControl.Size = new System.Drawing.Size(110, 20);
             this.startDateControl.TabIndex = 12;
+            // 
+            // importFromXMLBtn
+            // 
+            this.importFromXMLBtn.Location = new System.Drawing.Point(264, 18);
+            this.importFromXMLBtn.Name = "importFromXMLBtn";
+            this.importFromXMLBtn.Size = new System.Drawing.Size(90, 48);
+            this.importFromXMLBtn.TabIndex = 13;
+            this.importFromXMLBtn.Text = "Import from XML";
+            this.importFromXMLBtn.UseVisualStyleBackColor = true;
             // 
             // ExportToXMLWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(364, 333);
+            this.Controls.Add(this.importFromXMLBtn);
             this.Controls.Add(this.startDateControl);
             this.Controls.Add(this.endDateControl);
             this.Controls.Add(this.logList);
@@ -115,5 +126,6 @@
         private System.Windows.Forms.ListBox logList;
         private System.Windows.Forms.DateTimePicker endDateControl;
         private System.Windows.Forms.DateTimePicker startDateControl;
+        private System.Windows.Forms.Button importFromXMLBtn;
     }
 }

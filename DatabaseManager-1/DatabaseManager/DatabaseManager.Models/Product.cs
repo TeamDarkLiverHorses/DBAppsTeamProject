@@ -53,5 +53,10 @@ namespace DatabaseManager.Models
         {
             return this.Name == ((Product)obj).Name;
         }
+
+        public override int GetHashCode()
+        {
+            return this.Id;
+        }
     }
 }

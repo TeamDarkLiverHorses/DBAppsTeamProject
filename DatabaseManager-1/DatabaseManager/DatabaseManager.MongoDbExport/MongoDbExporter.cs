@@ -8,16 +8,16 @@
     using MongoDB.Bson;
     using MongoDB.Driver;
     
-    public class MongoDbExporter
+    public class MongoDbExporter : IDisposable
     {
-        private string connectionUri = "mongodb://admin:123456@ds036648.mongolab.com:36648/supermarkets";
+        private const string ConnectionUri = "mongodb://admin:123456@ds036648.mongolab.com:36648/supermarkets";
         private MongoClient mnogoClient;
         private IMongoDatabase supermarketsDb;
         private SalesReportForPeriod reportGenerator;
 
         public MongoDbExporter()
         {
-            this.mnogoClient = new MongoClient(this.connectionUri);
+            this.mnogoClient = new MongoClient(ConnectionUri);
             this.supermarketsDb = this.mnogoClient.GetDatabase("supermarkets");
             this.reportGenerator = new SalesReportForPeriod();
         }
@@ -50,6 +50,13 @@
             return productSales.Count();
         }
 
+        public async Task<IEnumerable<BsonDocument>> GetSales()
+        {
+            var collection = this.supermarketsDb.GetCollection<BsonDocument>("SalesByProductReports");
+            var a = await collection.Find(new BsonDocument()).ToListAsync();
+            return a;
+        }
+
         async private Task ExportToMongo(IEnumerable<ProductSales> sales)
         {
             List<BsonDocument> documentsToExport = new List<BsonDocument>();
@@ -75,6 +82,11 @@
                 { "total-incomes" , productSales.TotalIncome }
             };
             return document;
+        }
+
+        public void Dispose()
+        {
+            this.reportGenerator.Dispose();
         }
     }
 }

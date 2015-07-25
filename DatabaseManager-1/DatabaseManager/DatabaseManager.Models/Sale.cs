@@ -33,5 +33,10 @@ namespace DatabaseManager.Models
                 this.ProductId == ((Sale)obj).ProductId &&
                 this.ShopId == ((Sale)obj).ShopId;
         }
+
+        public override int GetHashCode()
+        {
+            return (int)this.Date.Ticks ^ this.ProductId ^ this.ShopId;
+        }
     }
 }

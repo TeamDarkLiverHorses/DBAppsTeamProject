@@ -1,11 +1,11 @@
-﻿namespace DatabaseManager.XML
+﻿namespace DatabaseManager.XML.Serialization
 {
     using System;
     using System.IO;
     using System.Threading.Tasks;
     using System.Xml.Serialization;
 
-    public static class Serializer
+    public static class XMLSerializer
     {
         public static async Task WriteXML(SalesReportsWrapper wrapper, string fileName)
         {
@@ -19,6 +19,16 @@
             {
                 string xml = ToXML(wrapper);
                 await streamWriter.WriteAsync(xml);
+            }
+        }
+
+        public static async Task<VendorExpensesWrapper> ReadXML(string fileName)
+        {
+            using (var streamReader = new StreamReader(fileName))
+            {
+                var xmlSerializer = new XmlSerializer(typeof(VendorExpensesWrapper));
+                var result = await Task.Run(() => xmlSerializer.Deserialize(streamReader));
+                return (VendorExpensesWrapper)result;
             }
         }
 

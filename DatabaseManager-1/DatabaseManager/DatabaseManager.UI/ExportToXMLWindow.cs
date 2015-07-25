@@ -1,6 +1,7 @@
 ﻿namespace DatabaseManager.UI
 {
     using DatabaseManager.XML;
+    using DatabaseManager.XML.Serialization;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -13,20 +14,27 @@
         {
             InitializeComponent();
             this.btnExportSales.Click += ExportSales;
+            this.importFromXMLBtn.Click += ImportSales;
+        }
+
+        private async void ImportSales(object sender, System.EventArgs e)
+        {
+            var xml = await XMLSerializer.ReadXML(SelectFileName(false));
+            MessageBox.Show(xml.Vendors.Length.ToString());
         }
 
         private async void ExportSales(object sender, System.EventArgs e)
         {
             var startDate = this.startDateControl.Value.Date;
             var endDate = this.endDateControl.Value.Date;
-            var fileName = SelectFileName();
+            var fileName = SelectFileName(true);
             if (fileName == null) return;
 
             this.logList.Items.Add("Building reports...");
             var salesReports = await Task.Run(() => BuildSalesReports(startDate, endDate));
 
             this.logList.Items.Add("Writing file...");
-            await Task.Run(() => Serializer.WriteXML(salesReports, fileName));
+            await Task.Run(() => XMLSerializer.WriteXML(salesReports, fileName));
             this.logList.Items.Add("Done");
         }
 
@@ -68,9 +76,13 @@
             }
         }
 
-        private string SelectFileName()
+        private string SelectFileName(bool isSave)
         {
-            using (var dialog = new SaveFileDialog())
+            FileDialog dialog = null;
+            if (isSave) dialog = new SaveFileDialog();
+            else dialog = new OpenFileDialog();
+
+            using (dialog)
             {
                 dialog.Filter = "XML (*.xml)|*.xml";
                 if (dialog.ShowDialog() == DialogResult.OK) return dialog.FileName;
