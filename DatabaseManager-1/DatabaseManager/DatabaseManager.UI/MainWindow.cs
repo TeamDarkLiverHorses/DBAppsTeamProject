@@ -13,6 +13,7 @@
             this.btnOracle.Click += StartOracleForm;
             this.btnExportOracle.Click += ExportOracleDB;
             this.btnExportPdf.Click += ExportToPdf;
+            this.btnCreateXmlReports.Click += ShowXMLExportWindow;
         }
 
         public void StartOracleForm(object sender, EventArgs e)
@@ -34,6 +35,14 @@
         public void ExportToPdf(object sender, EventArgs e)
         {
             using (var exportToPdfWindow = new ExportToPdfWindow())
+            {
+                exportToPdfWindow.ShowDialog(this);
+            }
+        }
+
+        private void ShowXMLExportWindow(object sender, EventArgs e)
+        {
+            using (var exportToPdfWindow = new ExportToXMLWindow())
             {
                 exportToPdfWindow.ShowDialog(this);
             }

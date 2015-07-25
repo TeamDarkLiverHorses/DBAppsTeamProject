@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.UI", "DatabaseManager.UI\DatabaseManager.UI.csproj", "{F90F3C55-F3A3-426C-BB96-A34876362B6A}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.ImportSalesData", "DatabaseManager.ImportSalesData\DatabaseManager.ImportSalesData.csproj", "{6705E4C0-CBE7-4EDF-AB30-70E6039D5A33}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.SalesReports", "DatabaseManager.SalesReports\DatabaseManager.SalesReports.csproj", "{31598CA7-7E56-4D95-93F3-A019C7CDC8CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.XML", "DatabaseManager.XML\DatabaseManager.XML.csproj", "{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,16 @@ Global
 		{31598CA7-7E56-4D95-93F3-A019C7CDC8CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{31598CA7-7E56-4D95-93F3-A019C7CDC8CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{31598CA7-7E56-4D95-93F3-A019C7CDC8CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4E27F81E-1B3F-4214-9F7F-B07A4A3837D1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

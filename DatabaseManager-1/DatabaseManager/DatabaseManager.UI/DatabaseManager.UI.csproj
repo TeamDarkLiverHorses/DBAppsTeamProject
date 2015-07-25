@@ -57,6 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExportToXMLWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportToXMLWindow.Designer.cs">
+      <DependentUpon>ExportToXMLWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="SearchOption.cs" />
     <Compile Include="DBManagerWindow.cs">
       <SubType>Form</SubType>
@@ -113,6 +119,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ExportToPdfWindow.resx">
       <DependentUpon>ExportToPdfWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ExportToXMLWindow.resx">
+      <DependentUpon>ExportToXMLWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ImportToSQLWindow.resx">
       <DependentUpon>ImportToSQLWindow.cs</DependentUpon>
@@ -174,6 +183,10 @@
     <ProjectReference Include="..\DatabaseManager.SalesReports\DatabaseManager.SalesReports.csproj">
       <Project>{31598ca7-7e56-4d95-93f3-a019c7cdc8ca}</Project>
       <Name>DatabaseManager.SalesReports</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseManager.XML\DatabaseManager.XML.csproj">
+      <Project>{4e27f81e-1b3f-4214-9f7f-b07a4a3837d1}</Project>
+      <Name>DatabaseManager.XML</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
