@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="PdfReport.cs" />
+    <Compile Include="ProductSales.cs" />
     <Compile Include="SalesReportForPeriod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
