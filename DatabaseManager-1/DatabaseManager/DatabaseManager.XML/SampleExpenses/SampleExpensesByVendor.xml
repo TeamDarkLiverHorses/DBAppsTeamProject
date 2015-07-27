@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8">
+<?xml version="1.0" encoding="utf-8" ?>
 <expenses-by-month>
   <vendor name="Coca Cola">
     <expenses month="Jan-2014">100.00</expenses>
@@ -33,4 +33,4 @@
     <expenses month="Aug-2014">711.00</expenses>
     <expenses month="Sep-2014">34.00</expenses>
   </vendor>
-<expenses-by-month>
+</expenses-by-month>
