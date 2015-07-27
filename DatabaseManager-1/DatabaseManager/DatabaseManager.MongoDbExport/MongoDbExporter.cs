@@ -67,8 +67,11 @@
                 documentsToExport.Add(newDoc);
             }
 
+            var jsonCreator = new JsonCreator();
+            jsonCreator.WriteJsonFiles(documentsToExport);
+
             var collection = this.supermarketsDb.GetCollection<BsonDocument>("SalesByProductReports");
-            await collection.InsertManyAsync(documentsToExport);   
+            await collection.InsertManyAsync(documentsToExport);
         }
 
         private BsonDocument CreateBson(ProductSales productSales)
