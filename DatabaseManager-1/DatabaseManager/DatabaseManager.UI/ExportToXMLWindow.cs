@@ -23,11 +23,14 @@
             //MessageBox.Show(xml.Vendors.Length.ToString());
 
             var context = new DatabaseManager.Data.SupermarketsContext();
+            int vendorsCount = 0;
+            int expensesCount = 0;
             foreach (var vendor in xml.Vendors)
             {
                 var dbVendor = context.Vendors.Where(v => v.Name == vendor.Name).FirstOrDefault();
                 if (dbVendor != null)
                 {
+                    vendorsCount++;
                     foreach (var expense in vendor.Summaries)
                     {
                         var newExpense = new DatabaseManager.Models.Expense()
@@ -36,10 +39,15 @@
                             Ammount = decimal.Parse(expense.Price)
                         };
                         dbVendor.Expenses.Add(newExpense);
+                        expensesCount++;
                     }
                 }
             }
             context.SaveChanges();
+            this.logList.Items.Add(string.Format(
+                "Adding {0} expenses for {1} vendors...",
+                expensesCount, vendorsCount));
+            this.logList.Items.Add("Done!");
         }
 
         private async void ExportSales(object sender, System.EventArgs e)
