@@ -20,7 +20,26 @@
         private async void ImportVendorExpenses(object sender, System.EventArgs e)
         {
             var xml = await XMLSerializer.ReadXML(SelectFileName(false));
-            MessageBox.Show(xml.Vendors.Length.ToString());
+            //MessageBox.Show(xml.Vendors.Length.ToString());
+
+            var context = new DatabaseManager.Data.SupermarketsContext();
+            foreach (var vendor in xml.Vendors)
+            {
+                var dbVendor = context.Vendors.Where(v => v.Name == vendor.Name).FirstOrDefault();
+                if (dbVendor != null)
+                {
+                    foreach (var expense in vendor.Summaries)
+                    {
+                        var newExpense = new DatabaseManager.Models.Expense()
+                        {
+                            Date = DateTime.Parse(expense.Month),
+                            Ammount = decimal.Parse(expense.Price)
+                        };
+                        dbVendor.Expenses.Add(newExpense);
+                    }
+                }
+            }
+            context.SaveChanges();
         }
 
         private async void ExportSales(object sender, System.EventArgs e)
