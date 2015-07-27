@@ -55,13 +55,15 @@
                                        };
 
                 var vendorGroups = await saleReportsQuery.ToArrayAsync();
+                string monthFormat = @"MMM-yyyy";
+                string currencyFormat = @"# ###.00";
                 var salesReports = vendorGroups.Select(vg =>
                 {
                     var summaries = vg.Sales.
                         Select(s => new Summary()
                         {
-                            Date = s.Date.ToString(),
-                            TotalPrice = s.TotalSum.ToString()
+                            Date = s.Date.ToString(monthFormat),
+                            TotalPrice = s.TotalSum.ToString(currencyFormat)
                         });
                     var salesReport = new SalesReport()
                         {
