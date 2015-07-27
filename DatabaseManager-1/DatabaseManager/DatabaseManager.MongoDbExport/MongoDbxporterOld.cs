@@ -9,35 +9,40 @@
     public class MongoDbExporterOld
     {
         private SalesReportForPeriod reportGenerator;
+        private string directoryPath;
 
         public MongoDbExporterOld()
         {
             this.reportGenerator = new SalesReportForPeriod();
         }
 
-        public int ExportProducSalesBetween(DateTime startDate, DateTime endDate)
+        public int ExportProducSalesBetween(DateTime startDate, DateTime endDate, string directory)
         {
+            directoryPath = directory;
             var productSales = reportGenerator.GetProductSalesBetween(startDate, endDate);
             ExportToMongo(productSales);
             return productSales.Count();
         }
 
-        public int ExportProducSalesAfter(DateTime startDate)
+        public int ExportProducSalesAfter(DateTime startDate, string directory)
         {
+            directoryPath = directory;
             var productSales = reportGenerator.GetProductSalesAfter(startDate);
             ExportToMongo(productSales);
             return productSales.Count();
         }
 
-        public int ExportProducSalesBefore(DateTime endDate)
+        public int ExportProducSalesBefore(DateTime endDate, string directory)
         {
+            directoryPath = directory;
             var productSales = reportGenerator.GetProductSalesBefore(endDate);
             ExportToMongo(productSales);
             return productSales.Count();
         }
 
-        public int ExportProducSalesOn(DateTime date)
+        public int ExportProducSalesOn(DateTime date, string directory)
         {
+            directoryPath = directory;
             var productSales = reportGenerator.GetProductSalesOn(date);
             ExportToMongo(productSales);
             return productSales.Count();
@@ -63,7 +68,7 @@
             mongo.Disconnect();
 
             var jsonCreator = new JsonCreator();
-            jsonCreator.WriteJsonFiles(documentsToExport);
+            jsonCreator.WriteJsonFiles(documentsToExport, directoryPath);
 
             return documentsToExport.Count();
         }
