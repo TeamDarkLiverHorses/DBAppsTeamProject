@@ -1,12 +1,12 @@
 ﻿namespace DatabaseManager.UI
 {
-    using DatabaseManager.XML;
-    using DatabaseManager.XML.Serialization;
     using System;
     using System.Data.Entity;
     using System.Linq;
     using System.Threading.Tasks;
     using System.Windows.Forms;
+    using DatabaseManager.XML;
+    using DatabaseManager.XML.Serialization;
 
     public partial class ExportToXMLWindow : Form
     {
@@ -14,10 +14,10 @@
         {
             InitializeComponent();
             this.btnExportSales.Click += ExportSales;
-            this.importFromXMLBtn.Click += ImportSales;
+            this.importFromXMLBtn.Click += ImportVendorExpenses;
         }
 
-        private async void ImportSales(object sender, System.EventArgs e)
+        private async void ImportVendorExpenses(object sender, System.EventArgs e)
         {
             var xml = await XMLSerializer.ReadXML(SelectFileName(false));
             MessageBox.Show(xml.Vendors.Length.ToString());

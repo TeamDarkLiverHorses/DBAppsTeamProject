@@ -74,7 +74,7 @@
             this.panelMain.Controls.Add(this.btnOracle);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 47);
-            this.panelMain.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(6);
             this.panelMain.Name = "panelMain";
             this.panelMain.Size = new System.Drawing.Size(538, 578);
             this.panelMain.TabIndex = 1;
@@ -82,17 +82,17 @@
             // btnCreateXmlReports
             // 
             this.btnCreateXmlReports.Location = new System.Drawing.Point(8, 271);
-            this.btnCreateXmlReports.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnCreateXmlReports.Margin = new System.Windows.Forms.Padding(6);
             this.btnCreateXmlReports.Name = "btnCreateXmlReports";
             this.btnCreateXmlReports.Size = new System.Drawing.Size(520, 77);
             this.btnCreateXmlReports.TabIndex = 3;
-            this.btnCreateXmlReports.Text = "4. &Create Sales Reports (XML)";
+            this.btnCreateXmlReports.Text = "4. &Incomes and Expenses by Vendor (XML)";
             this.btnCreateXmlReports.UseVisualStyleBackColor = true;
             // 
             // btnExportPdf
             // 
             this.btnExportPdf.Location = new System.Drawing.Point(8, 183);
-            this.btnExportPdf.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnExportPdf.Margin = new System.Windows.Forms.Padding(6);
             this.btnExportPdf.Name = "btnExportPdf";
             this.btnExportPdf.Size = new System.Drawing.Size(520, 77);
             this.btnExportPdf.TabIndex = 2;
@@ -102,7 +102,7 @@
             // btnExportOracle
             // 
             this.btnExportOracle.Location = new System.Drawing.Point(8, 94);
-            this.btnExportOracle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnExportOracle.Margin = new System.Windows.Forms.Padding(6);
             this.btnExportOracle.Name = "btnExportOracle";
             this.btnExportOracle.Size = new System.Drawing.Size(520, 77);
             this.btnExportOracle.TabIndex = 1;
@@ -112,7 +112,7 @@
             // btnOracle
             // 
             this.btnOracle.Location = new System.Drawing.Point(8, 6);
-            this.btnOracle.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.btnOracle.Margin = new System.Windows.Forms.Padding(6);
             this.btnOracle.Name = "btnOracle";
             this.btnOracle.Size = new System.Drawing.Size(520, 77);
             this.btnOracle.TabIndex = 0;
@@ -138,7 +138,7 @@
             this.Controls.Add(this.menu);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MainMenuStrip = this.menu;
-            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Start";

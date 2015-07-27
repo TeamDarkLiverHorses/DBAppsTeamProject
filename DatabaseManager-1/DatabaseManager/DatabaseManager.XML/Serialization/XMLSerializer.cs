@@ -11,7 +11,7 @@
         {
             if (wrapper == null)
             {
-                throw new ArgumentNullException("wrapper cannot be null");
+                throw new ArgumentNullException("Wrapper cannot be null");
             }
 
             using (var fileStream = File.Open(fileName, FileMode.Create, FileAccess.Write, FileShare.None))
