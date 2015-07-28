@@ -10,6 +10,7 @@
     public class SQLiteTest
     {
         private static Random rnd = new Random();
+
         public static void Main()
         {
             Console.WriteLine("Inserted {0} taxes.", UpdateProductsAndTaxes());
