@@ -44,8 +44,7 @@
                 }
             }
             context.SaveChanges();
-            this.logList.Items.Add(string.Format(
-                "Adding {0} expenses for {1} vendors...",
+            this.logList.Items.Add(string.Format("Adding {0} expenses for {1} vendors...",
                 expensesCount, vendorsCount));
             this.logList.Items.Add("Done!");
         }
