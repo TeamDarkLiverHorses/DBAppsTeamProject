@@ -15,7 +15,7 @@
         public static void Main()
         {
             var exporter = new MongoDbExporter();
-            int recordsAffected = exporter.ExportProducSalesBefore(DateTime.Now);
+            int recordsAffected = exporter.ExportProducSalesBefore(DateTime.Now, "");
             Console.WriteLine("Exported {0} documents...", recordsAffected);
             //var task = exporter.GetSales();
             //System.Threading.Tasks.Task.WaitAll(task);

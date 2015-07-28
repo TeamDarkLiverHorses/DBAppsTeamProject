@@ -32,12 +32,13 @@
             this.mFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mExit = new System.Windows.Forms.ToolStripMenuItem();
             this.panelMain = new System.Windows.Forms.Panel();
+            this.btnJSON = new System.Windows.Forms.Button();
             this.btnCreateXmlReports = new System.Windows.Forms.Button();
             this.btnExportPdf = new System.Windows.Forms.Button();
             this.btnExportOracle = new System.Windows.Forms.Button();
             this.btnOracle = new System.Windows.Forms.Button();
             this.stripMain = new System.Windows.Forms.StatusStrip();
-            this.btnJSON = new System.Windows.Forms.Button();
+            this.btnMySql = new System.Windows.Forms.Button();
             this.menu.SuspendLayout();
             this.panelMain.SuspendLayout();
             this.SuspendLayout();
@@ -68,6 +69,7 @@
             // 
             // panelMain
             // 
+            this.panelMain.Controls.Add(this.btnMySql);
             this.panelMain.Controls.Add(this.btnJSON);
             this.panelMain.Controls.Add(this.btnCreateXmlReports);
             this.panelMain.Controls.Add(this.btnExportPdf);
@@ -76,8 +78,17 @@
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMain.Location = new System.Drawing.Point(0, 24);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(269, 301);
+            this.panelMain.Size = new System.Drawing.Size(269, 343);
             this.panelMain.TabIndex = 1;
+            // 
+            // btnJSON
+            // 
+            this.btnJSON.Location = new System.Drawing.Point(4, 187);
+            this.btnJSON.Name = "btnJSON";
+            this.btnJSON.Size = new System.Drawing.Size(260, 40);
+            this.btnJSON.TabIndex = 4;
+            this.btnJSON.Text = "5. &JSON Reports";
+            this.btnJSON.UseVisualStyleBackColor = true;
             // 
             // btnCreateXmlReports
             // 
@@ -117,26 +128,26 @@
             // 
             // stripMain
             // 
-            this.stripMain.Location = new System.Drawing.Point(0, 303);
+            this.stripMain.Location = new System.Drawing.Point(0, 345);
             this.stripMain.Name = "stripMain";
             this.stripMain.Size = new System.Drawing.Size(269, 22);
             this.stripMain.TabIndex = 2;
             this.stripMain.Text = "statusStrip1";
             // 
-            // btnJSON
+            // btnMySql
             // 
-            this.btnJSON.Location = new System.Drawing.Point(4, 187);
-            this.btnJSON.Name = "btnJSON";
-            this.btnJSON.Size = new System.Drawing.Size(260, 40);
-            this.btnJSON.TabIndex = 4;
-            this.btnJSON.Text = "5. &JSON Reports";
-            this.btnJSON.UseVisualStyleBackColor = true;
+            this.btnMySql.Location = new System.Drawing.Point(4, 233);
+            this.btnMySql.Name = "btnMySql";
+            this.btnMySql.Size = new System.Drawing.Size(260, 40);
+            this.btnMySql.TabIndex = 5;
+            this.btnMySql.Text = "6. &Export To MySql (Incomes and Expenses)";
+            this.btnMySql.UseVisualStyleBackColor = true;
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(269, 325);
+            this.ClientSize = new System.Drawing.Size(269, 367);
             this.Controls.Add(this.stripMain);
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.menu);
@@ -165,6 +176,7 @@
         private System.Windows.Forms.Button btnExportPdf;
         private System.Windows.Forms.Button btnCreateXmlReports;
         private System.Windows.Forms.Button btnJSON;
+        private System.Windows.Forms.Button btnMySql;
     }
 }
 

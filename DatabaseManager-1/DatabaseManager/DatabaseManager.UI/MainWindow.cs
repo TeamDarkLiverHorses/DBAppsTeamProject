@@ -15,6 +15,7 @@
             this.btnExportPdf.Click += ExportToPdf;
             this.btnCreateXmlReports.Click += ShowXMLExportWindow;
             this.btnJSON.Click += ShowJSONExport;
+            this.btnMySql.Click += ShowMySqlExport;
         }
 
         public void StartOracleForm(object sender, EventArgs e)
@@ -54,6 +55,14 @@
             using (JSONWindow jsonWindow = new JSONWindow())
             {
                 jsonWindow.ShowDialog(this);
+            }
+        }
+
+        private void ShowMySqlExport(object sender, EventArgs e)
+        {
+            using (ExportToMySqlWindow mySqlWindow = new ExportToMySqlWindow())
+            {
+                mySqlWindow.ShowDialog(this);
             }
         }
     }
