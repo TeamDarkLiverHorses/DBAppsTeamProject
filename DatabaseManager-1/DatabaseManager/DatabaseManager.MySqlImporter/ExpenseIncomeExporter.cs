@@ -12,6 +12,8 @@
 
     public class ExpenseIncomeExporter
     {
+        private string info = "Expenses imported: {0}" + Environment.NewLine + "Incomes imported: {1}";
+        
         public string ImportDataToMySql()
         {
             try
@@ -27,7 +29,7 @@
                 }
 
                 // this checks for duplicate vendors
-                // if there is duplicate it removes it from vendors and add it as vendor and adds it to all products with the same value
+                // if there is duplicate it removes it from vendors and add it as vendor to all products with the same value
                 for (int a = vendorsToImport.Count - 1; a >= 0; a--)
                 {
                     bool isAdded = false;
@@ -48,7 +50,13 @@
                     }
                 }
 
-                string result = MySqlImporter.ImportData(vendorsToImport, productsToImport);
+                // this should return more accurate result
+                int expensesCount = vendorsToImport.Count + GetVendorsProductsTotalCount(productsToImport);
+                int incomesCount = productsToImport.Count;
+
+                MySqlImporter.ImportData(vendorsToImport, productsToImport);
+
+                string result = string.Format(info, expensesCount, incomesCount);
 
                 return result;
 
@@ -96,6 +104,18 @@
             }
 
             return productsToImport;
+        }
+
+        private int GetVendorsProductsTotalCount(List<MySqlProduct> productsToImport)
+        {
+            HashSet<string> vendorsName = new HashSet<string>();
+
+            for (int i = 0; i < productsToImport.Count; i++)
+            {
+                vendorsName.Add(productsToImport[i].Vendor.Name);
+            }
+
+            return vendorsName.Count;
         }
     }
 }

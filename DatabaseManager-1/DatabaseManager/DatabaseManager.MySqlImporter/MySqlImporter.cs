@@ -11,16 +11,9 @@
 
     internal static class MySqlImporter
     {
-        private static string info = "Expenses imported: {0}" + Environment.NewLine + "Incomes imported: {1}";
 
-        private static int expenses = 0;
-        private static int incomes = 0;
-
-        internal static string ImportData(List<MySqlVendor> vendors, List<MySqlProduct> products)
+        internal static void ImportData(List<MySqlVendor> vendors, List<MySqlProduct> products)
         {
-            expenses = 0;
-            incomes = 0;
-            
             using (MySqlSupermarketContext context = new MySqlSupermarketContext())
             {
                 using (var transaction = context.Database.BeginTransaction(IsolationLevel.RepeatableRead))
@@ -38,7 +31,6 @@
                                 context.vendors.Add(currentVendor);
                             }
 
-                            expenses += 1;
                         }
 
                         context.SaveChanges();
@@ -58,10 +50,6 @@
                             {
                                 context.products.Add(currentProduct);
                             }
-
-                            expenses += 1;
-
-                            incomes += 1;
                         }
 
                         context.SaveChanges();
@@ -84,8 +72,6 @@
                     }
                 }
             }
-
-            return string.Format(info, expenses, incomes);
         }
     }
 }
