@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ImportToSQLWindow));
             this.menu = new System.Windows.Forms.MenuStrip();
             this.mFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mExit = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,6 +135,7 @@
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.statusMain);
             this.Controls.Add(this.menu);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
             this.Name = "ImportToSQLWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
