@@ -8,6 +8,8 @@
     using DatabaseManager.Data;
     using DatabaseManager.Models;
     using DatabaseManager.SQLite.Data;
+    using DatabaseManager.MySqlData;
+    using DatabaseManager.MySqlModels;
     using OfficeOpenXml;
     using OfficeOpenXml.Style;
 
@@ -53,9 +55,9 @@
             }
 
             var range = ws.Cells["A1:E" + (row - 1)];
-            var border = range.Style.Border.Top.Style 
+            var border = range.Style.Border.Top.Style
                 = range.Style.Border.Left.Style
-                = range.Style.Border.Right.Style 
+                = range.Style.Border.Right.Style
                 = range.Style.Border.Bottom.Style = ExcelBorderStyle.Thin;
             pck.Save();
         }
@@ -88,8 +90,8 @@
 
         public IEnumerable<VendorProfit> CalculateVendorsProfits()
         {
-            var vendorExpenses = this.GetVendorExpenses();
-            var vendorIncomes = this.GetVendorsIncomes();
+            var vendorExpenses = this.GetVendorExpensesFromMySql();
+            var vendorIncomes = this.GetVendorsIncomesFromMySql();
             var productTaxes = this.GetProductTaxes();
 
             List<VendorProfit> vendorProfits = new List<VendorProfit>();
@@ -134,6 +136,35 @@
                     Expense = v.Expenses.Sum(e => e.Ammount)
                 });
             return vendorExpenses;
+        }
+
+        private IEnumerable<VendorExpense> GetVendorExpensesFromMySql()
+        {
+            var context = new MySqlSupermarketContext();
+            var vendorExpenses = context.vendors
+            .Select(v => new VendorExpense()
+            {
+                VendorName = v.Name,
+                Expense = v.Expenses
+            }).ToList();
+            return vendorExpenses;
+        }
+
+        private IEnumerable<VendorIncome> GetVendorsIncomesFromMySql()
+        {
+            var context = new MySqlSupermarketContext();
+            var vendorsIncomes = context.vendors
+            .Select(v => new VendorIncome()
+            {
+                VendorName = v.Name,
+                ProductIncomes = v.Products.Select(p => new ProductIncome()
+                {
+                    ProductName = p.Name,
+                    Income = p.Incomes
+                }).ToList()
+            }).ToList();
+
+            return vendorsIncomes;
         }
     }
 }

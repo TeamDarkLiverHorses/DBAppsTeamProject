@@ -68,6 +68,14 @@
       <Project>{3c6474b7-0c01-4364-a291-6657cca8cd8d}</Project>
       <Name>DatabaseManager.Models</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DatabaseManager.MySqlData\DatabaseManager.MySql.Data.csproj">
+      <Project>{26549216-2be9-4a21-9c49-09b045740651}</Project>
+      <Name>DatabaseManager.MySql.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseManager.MySqlModels\DatabaseManager.MySqlModels.csproj">
+      <Project>{71454592-6504-4c34-9a8e-a88960035c45}</Project>
+      <Name>DatabaseManager.MySqlModels</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DatabaseManager.SQLite.Data\DatabaseManager.SQLite.Data.csproj">
       <Project>{cd01af28-3400-4b10-aa47-0f48b07253a9}</Project>
       <Name>DatabaseManager.SQLite.Data</Name>
