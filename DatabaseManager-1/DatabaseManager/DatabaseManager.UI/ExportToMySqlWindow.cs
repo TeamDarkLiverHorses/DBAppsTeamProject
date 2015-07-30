@@ -1,15 +1,10 @@
 ﻿namespace DatabaseManager.UI
 {
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using DatabaseManager.MySqlImporter;
+    using System.Text;
 
     public partial class ExportToMySqlWindow : Form
     {
@@ -29,11 +24,17 @@
             {
                 try
                 {
-                    ExpenseIncomeExporter mySqlExporter = new ExpenseIncomeExporter();
+                    ImportResult resultVendors = VendorDataImporter.ImportVendors(VendorDataGenerator.GetVendorExpenses());
+                    ImportResult resultProducts = VendorDataImporter.ImportProducts(VendorDataGenerator.GetProductIncomes());
 
-                    string result = mySqlExporter.ImportDataToMySql();
+                    StringBuilder output = new StringBuilder();
+                    output.AppendFormat("{0} records insrted and {1} records updated in Vendors.",
+                        resultVendors.Inserted, resultVendors.Updated);
+                    output.AppendLine();
+                    output.AppendFormat("{0} records insrted and {1} records updated in Products.",
+                        resultProducts.Inserted, resultProducts.Updated);
 
-                    this.Invoke(new Action(() => { this.txtInfo.Text = result; }));
+                    this.Invoke(new Action(() => { this.txtInfo.Text = output.ToString(); }));
                 }
                 catch (Exception ex)
                 {

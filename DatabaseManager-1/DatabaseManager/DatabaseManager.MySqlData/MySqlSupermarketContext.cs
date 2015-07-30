@@ -1,19 +1,12 @@
 ﻿namespace DatabaseManager.MySqlData
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using System.Data.Entity;
-    using MySql.Data.Entity;
     using DatabaseManager.MySqlModels;
     
     public class MySqlSupermarketContext : DbContext
     {
         public MySqlSupermarketContext() : base("name=MySqlConnection")
         { 
-        
         }
         
         public virtual DbSet<MySqlProduct> products { get; set; }

@@ -27,11 +27,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.SQLite.Data
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.SQLite.Test", "DatabaseManager.SQLite.Test\DatabaseManager.SQLite.Test.csproj", "{81C4E677-B142-4336-891B-F0A7B506B503}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.MySqlData", "DatabaseManager.MySqlData\DatabaseManager.MySqlData.csproj", "{26549216-2BE9-4A21-9C49-09B045740651}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.MySql.Data", "DatabaseManager.MySqlData\DatabaseManager.MySql.Data.csproj", "{26549216-2BE9-4A21-9C49-09B045740651}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.MySqlExporter", "DatabaseManager.MySqlImporter\DatabaseManager.MySqlExporter.csproj", "{2CD1361F-075D-477E-9F8A-BF5A39870C7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.MySqlModels", "DatabaseManager.MySqlModels\DatabaseManager.MySqlModels.csproj", "{71454592-6504-4C34-9A8E-A88960035C45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseManager.MySql.Console", "DatabaseManager.MySql.Console\DatabaseManager.MySql.Console.csproj", "{4BD9AC7A-AF87-45D8-8335-4763E88203C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -193,6 +195,16 @@ Global
 		{71454592-6504-4C34-9A8E-A88960035C45}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{71454592-6504-4C34-9A8E-A88960035C45}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{71454592-6504-4C34-9A8E-A88960035C45}.Release|x86.ActiveCfg = Release|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{4BD9AC7A-AF87-45D8-8335-4763E88203C1}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

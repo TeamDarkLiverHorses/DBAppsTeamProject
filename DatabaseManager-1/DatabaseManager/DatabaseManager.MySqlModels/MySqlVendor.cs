@@ -1,7 +1,5 @@
-﻿using System;
-namespace DatabaseManager.MySqlModels
+﻿namespace DatabaseManager.MySqlModels
 {
-    using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;

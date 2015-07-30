@@ -4,15 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2CD1361F-075D-477E-9F8A-BF5A39870C7D}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{4BD9AC7A-AF87-45D8-8335-4763E88203C1}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DatabaseManager.MySqlImporter</RootNamespace>
-    <AssemblyName>DatabaseManager.MySqlImporter</AssemblyName>
+    <RootNamespace>DatabaseManager.MySql.Console</RootNamespace>
+    <AssemblyName>DatabaseManager.MySql.Console</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+    <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer">
@@ -52,32 +55,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="VendorDataGenerator.cs" />
-    <Compile Include="VendorDataImporter.cs" />
+    <Compile Include="MySqlTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ImportResult.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DatabaseManager.Data\DatabaseManager.Data.csproj">
-      <Project>{8032705e-c350-4c1d-a872-d4a1e2f7a032}</Project>
-      <Name>DatabaseManager.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DatabaseManager.Models\DatabaseManager.Models.csproj">
-      <Project>{3c6474b7-0c01-4364-a291-6657cca8cd8d}</Project>
-      <Name>DatabaseManager.Models</Name>
-    </ProjectReference>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DatabaseManager.MySqlData\DatabaseManager.MySql.Data.csproj">
       <Project>{26549216-2be9-4a21-9c49-09b045740651}</Project>
       <Name>DatabaseManager.MySql.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DatabaseManager.MySqlImporter\DatabaseManager.MySqlExporter.csproj">
+      <Project>{2cd1361f-075d-477e-9f8a-bf5a39870c7d}</Project>
+      <Name>DatabaseManager.MySqlExporter</Name>
     </ProjectReference>
     <ProjectReference Include="..\DatabaseManager.MySqlModels\DatabaseManager.MySqlModels.csproj">
       <Project>{71454592-6504-4c34-9a8e-a88960035c45}</Project>
       <Name>DatabaseManager.MySqlModels</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
