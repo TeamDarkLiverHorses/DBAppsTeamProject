@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<expenses-by-month>
+  <vendor name="Coca Cola">
+    <expenses month="Jan-2014">100.00</expenses>
+    <expenses month="Feb-2014">200.00</expenses>
+    <expenses month="Mar-2014">250.00</expenses>
+    <expenses month="Apr-2014">123.00</expenses>
+    <expenses month="May-2014">456.00</expenses>
+    <expenses month="Jun-2014">432.00</expenses>
+    <expenses month="Jul-2014">755.00</expenses>
+    <expenses month="Aug-2014">78.00</expenses>
+    <expenses month="Sep-2014">23.00</expenses>
+  </vendor>
+  <vendor name="PepsiCo">
+    <expenses month="Jan-2014">34.00</expenses>
+    <expenses month="Feb-2014">56.00</expenses>
+    <expenses month="Mar-2014">76.00</expenses>
+    <expenses month="Apr-2014">134.00</expenses>
+    <expenses month="May-2014">466.00</expenses>
+    <expenses month="Jun-2014">432.00</expenses>
+    <expenses month="Jul-2014">88.00</expenses>
+    <expenses month="Aug-2014">78.00</expenses>
+    <expenses month="Sep-2014">34.00</expenses>
+  </vendor>
+  <vendor name="Carlsberg Group">
+    <expenses month="Jan-2014">345.00</expenses>
+    <expenses month="Feb-2014">6656.00</expenses>
+    <expenses month="Mar-2014">13.00</expenses>
+    <expenses month="Apr-2014">455.00</expenses>
+    <expenses month="May-2014">22.00</expenses>
+    <expenses month="Jun-2014">567.00</expenses>
+    <expenses month="Jul-2014">877.00</expenses>
+    <expenses month="Aug-2014">711.00</expenses>
+    <expenses month="Sep-2014">34.00</expenses>
+  </vendor>
+</expenses-by-month>

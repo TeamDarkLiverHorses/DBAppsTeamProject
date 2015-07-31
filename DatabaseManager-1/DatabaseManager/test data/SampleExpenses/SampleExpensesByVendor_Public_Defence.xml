@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<expenses-by-month>
+  <vendor name="SoftUni">
+    <expenses month="Jan-2014">23.00</expenses>
+    <expenses month="Feb-2014">33.00</expenses>
+    <expenses month="Mar-2014">44.00</expenses>
+    <expenses month="Apr-2014">55.00</expenses>
+    <expenses month="May-2014">66.00</expenses>
+    <expenses month="Jun-2014">111.00</expenses>
+    <expenses month="Jul-2014">222.00</expenses>
+    <expenses month="Aug-2014">333.00</expenses>
+    <expenses month="Sep-2014">444.00</expenses>
+  </vendor>
+  <vendor name="Apple">
+    <expenses month="Jan-2014">444.00</expenses>
+    <expenses month="Feb-2014">555.00</expenses>
+    <expenses month="Mar-2014">666.00</expenses>
+    <expenses month="Apr-2014">111.00</expenses>
+    <expenses month="May-2014">345.00</expenses>
+    <expenses month="Jun-2014">567.00</expenses>
+    <expenses month="Jul-2014">8585.00</expenses>
+    <expenses month="Aug-2014">63.00</expenses>
+    <expenses month="Sep-2014">83.00</expenses>
+  </vendor>
+  <vendor name="Samsung">
+    <expenses month="Jan-2014">11.00</expenses>
+    <expenses month="Feb-2014">12.00</expenses>
+    <expenses month="Mar-2014">13.00</expenses>
+    <expenses month="Apr-2014">14.00</expenses>
+    <expenses month="May-2014">15.00</expenses>
+    <expenses month="Jun-2014">16.00</expenses>
+    <expenses month="Jul-2014">17.00</expenses>
+    <expenses month="Aug-2014">18.00</expenses>
+    <expenses month="Sep-2014">19.00</expenses>
+  </vendor>
+</expenses-by-month>
