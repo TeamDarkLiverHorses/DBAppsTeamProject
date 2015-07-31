@@ -3,12 +3,6 @@
 
     using DatabaseManager.MongoDbExport;
     using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
 
@@ -56,7 +50,7 @@
                             try
                             {
                                 MongoDbExporter mongoExporter = new MongoDbExporter();
-                                int recordsAffected = mongoExporter.ExportProducSalesOn(dateSearch.Value, path);
+                                int recordsAffected = mongoExporter.ExportProductSalesOn(dateSearch.Value, path);
 
                                 this.listInfo.Invoke(new Action(() => { ResultInformation(recordsAffected); }));
                             }
@@ -72,7 +66,7 @@
                             try
                             {
                                 MongoDbExporter exportToDb = new MongoDbExporter();
-                                int recordsAffected = exportToDb.ExportProducSalesBefore(dateSearch.Value, path);
+                                int recordsAffected = exportToDb.ExportProductSalesBefore(dateSearch.Value, path);
 
                                 this.listInfo.Invoke(new Action(() => { ResultInformation(recordsAffected); }));
                             }
@@ -88,7 +82,7 @@
                             try
                             {
                                 MongoDbExporter exportToDb = new MongoDbExporter();
-                                int recordsAffected = exportToDb.ExportProducSalesAfter(dateSearch.Value, path);
+                                int recordsAffected = exportToDb.ExportProductSalesAfter(dateSearch.Value, path);
 
                                 this.listInfo.Invoke(new Action(() => { ResultInformation(recordsAffected); }));
                             }
@@ -104,7 +98,7 @@
                             try
                             {
                                 MongoDbExporter exportToDb = new MongoDbExporter();
-                                int recordsAffected = exportToDb.ExportProducSalesBetween(dateSearch.Value, dateHelper.Value, path);
+                                int recordsAffected = exportToDb.ExportProductSalesBetween(dateSearch.Value, dateHelper.Value, path);
 
                                 this.listInfo.Invoke(new Action(() => { ResultInformation(recordsAffected); }));
                             }
@@ -134,6 +128,11 @@
         private void ClearInfo(object sender, EventArgs e)
         {
             this.listInfo.Items.Clear();
+        }
+
+        private void pnlMain_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -74,5 +74,10 @@
                 excelWindow.ShowDialog(this);
             }
         }
+
+        private void MainWindow_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

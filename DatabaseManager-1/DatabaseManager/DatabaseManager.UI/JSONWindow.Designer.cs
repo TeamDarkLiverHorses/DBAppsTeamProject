@@ -52,7 +52,8 @@
             this.mFile});
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
-            this.menu.Size = new System.Drawing.Size(376, 24);
+            this.menu.Padding = new System.Windows.Forms.Padding(12, 4, 0, 4);
+            this.menu.Size = new System.Drawing.Size(752, 47);
             this.menu.TabIndex = 0;
             this.menu.Text = "menuStrip1";
             // 
@@ -61,20 +62,21 @@
             this.mFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mExit});
             this.mFile.Name = "mFile";
-            this.mFile.Size = new System.Drawing.Size(37, 20);
+            this.mFile.Size = new System.Drawing.Size(64, 39);
             this.mFile.Text = "File";
             // 
             // mExit
             // 
             this.mExit.Name = "mExit";
-            this.mExit.Size = new System.Drawing.Size(92, 22);
+            this.mExit.Size = new System.Drawing.Size(128, 40);
             this.mExit.Text = "Exit";
             // 
             // statusMain
             // 
-            this.statusMain.Location = new System.Drawing.Point(0, 363);
+            this.statusMain.Location = new System.Drawing.Point(0, 718);
             this.statusMain.Name = "statusMain";
-            this.statusMain.Size = new System.Drawing.Size(376, 22);
+            this.statusMain.Padding = new System.Windows.Forms.Padding(2, 0, 28, 0);
+            this.statusMain.Size = new System.Drawing.Size(752, 22);
             this.statusMain.TabIndex = 1;
             this.statusMain.Text = "statusStrip1";
             // 
@@ -84,16 +86,19 @@
             this.pnlMain.Controls.Add(this.listInfo);
             this.pnlMain.Controls.Add(this.groupBox1);
             this.pnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlMain.Location = new System.Drawing.Point(0, 24);
+            this.pnlMain.Location = new System.Drawing.Point(0, 47);
+            this.pnlMain.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pnlMain.Name = "pnlMain";
-            this.pnlMain.Size = new System.Drawing.Size(376, 339);
+            this.pnlMain.Size = new System.Drawing.Size(752, 671);
             this.pnlMain.TabIndex = 2;
+            this.pnlMain.Paint += new System.Windows.Forms.PaintEventHandler(this.pnlMain_Paint);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(12, 297);
+            this.btnClear.Location = new System.Drawing.Point(24, 571);
+            this.btnClear.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(90, 30);
+            this.btnClear.Size = new System.Drawing.Size(180, 58);
             this.btnClear.TabIndex = 2;
             this.btnClear.Text = "&Clear";
             this.btnClear.UseVisualStyleBackColor = true;
@@ -101,10 +106,12 @@
             // listInfo
             // 
             this.listInfo.FormattingEnabled = true;
-            this.listInfo.Location = new System.Drawing.Point(12, 105);
+            this.listInfo.ItemHeight = 25;
+            this.listInfo.Location = new System.Drawing.Point(24, 202);
+            this.listInfo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.listInfo.Name = "listInfo";
             this.listInfo.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listInfo.Size = new System.Drawing.Size(354, 186);
+            this.listInfo.Size = new System.Drawing.Size(704, 354);
             this.listInfo.TabIndex = 1;
             // 
             // groupBox1
@@ -113,18 +120,21 @@
             this.groupBox1.Controls.Add(this.dateHelper);
             this.groupBox1.Controls.Add(this.dateSearch);
             this.groupBox1.Controls.Add(this.comboExportOptions);
-            this.groupBox1.Location = new System.Drawing.Point(12, 3);
+            this.groupBox1.Location = new System.Drawing.Point(24, 6);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(354, 96);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBox1.Size = new System.Drawing.Size(708, 185);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
             // 
             // btnExport
             // 
-            this.btnExport.Location = new System.Drawing.Point(6, 56);
+            this.btnExport.Location = new System.Drawing.Point(12, 108);
+            this.btnExport.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.btnExport.Name = "btnExport";
-            this.btnExport.Size = new System.Drawing.Size(90, 30);
+            this.btnExport.Size = new System.Drawing.Size(180, 58);
             this.btnExport.TabIndex = 3;
             this.btnExport.Text = "&Export";
             this.btnExport.UseVisualStyleBackColor = true;
@@ -133,38 +143,42 @@
             // 
             this.dateHelper.Enabled = false;
             this.dateHelper.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateHelper.Location = new System.Drawing.Point(254, 45);
+            this.dateHelper.Location = new System.Drawing.Point(508, 87);
+            this.dateHelper.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dateHelper.Name = "dateHelper";
-            this.dateHelper.Size = new System.Drawing.Size(90, 20);
+            this.dateHelper.Size = new System.Drawing.Size(176, 31);
             this.dateHelper.TabIndex = 2;
             // 
             // dateSearch
             // 
             this.dateSearch.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateSearch.Location = new System.Drawing.Point(254, 19);
+            this.dateSearch.Location = new System.Drawing.Point(508, 37);
+            this.dateSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dateSearch.Name = "dateSearch";
-            this.dateSearch.Size = new System.Drawing.Size(90, 20);
+            this.dateSearch.Size = new System.Drawing.Size(176, 31);
             this.dateSearch.TabIndex = 1;
             // 
             // comboExportOptions
             // 
             this.comboExportOptions.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboExportOptions.FormattingEnabled = true;
-            this.comboExportOptions.Location = new System.Drawing.Point(6, 19);
+            this.comboExportOptions.Location = new System.Drawing.Point(12, 37);
+            this.comboExportOptions.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.comboExportOptions.Name = "comboExportOptions";
-            this.comboExportOptions.Size = new System.Drawing.Size(242, 21);
+            this.comboExportOptions.Size = new System.Drawing.Size(480, 33);
             this.comboExportOptions.TabIndex = 0;
             // 
             // JSONWindow
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(376, 385);
+            this.ClientSize = new System.Drawing.Size(752, 740);
             this.Controls.Add(this.pnlMain);
             this.Controls.Add(this.statusMain);
             this.Controls.Add(this.menu);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menu;
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "JSONWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "JSON Export";

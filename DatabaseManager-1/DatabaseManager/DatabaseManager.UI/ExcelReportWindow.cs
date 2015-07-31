@@ -2,11 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
     using System.Threading.Tasks;
     using System.Windows.Forms;
     using DatabaseManager.VendorReports;
@@ -29,7 +24,7 @@
             {
                 using (SaveFileDialog saveFile = new SaveFileDialog())
                 {
-                    saveFile.Filter = "Excel (*.xlsx)|*.xslx";
+                    saveFile.Filter = "Excel (*.xlsx)|*.xlsx";
 
                     if (saveFile.ShowDialog() == DialogResult.OK)
                     {
@@ -76,10 +71,10 @@
                 var row = this.dataGridView.Rows[index];
 
                 row.Cells["columnName"].Value = profit.VendorName;
-                row.Cells["columnTaxes"].Value = profit.VendorTaxes;
-                row.Cells["columnIncomes"].Value = profit.VendorIncome;
-                row.Cells["columnExpenses"].Value = profit.VendorExpenses;
-                row.Cells["columnProfit"].Value = profit.Profit;
+                row.Cells["columnTaxes"].Value = string.Format("{0: # ###.00}", profit.VendorTaxes);
+                row.Cells["columnIncomes"].Value = string.Format("{0: # ###.00}", profit.VendorIncome);
+                row.Cells["columnExpenses"].Value = string.Format("{0: # ###.00}", profit.VendorExpenses);
+                row.Cells["columnProfit"].Value = string.Format("{0: # ###.00}", profit.Profit);
             }
         }
 

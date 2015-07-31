@@ -23,33 +23,33 @@
             this.reportGenerator = new SalesReportForPeriod();
         }
 
-        public int ExportProducSalesBetween(DateTime startDate, DateTime endDate, string directory)
+        public int ExportProductSalesBetween(DateTime startDate, DateTime endDate, string directory)
         {
-            directoryPath = directory;
+            this.directoryPath = directory;
             var productSales = reportGenerator.GetProductSalesBetween(startDate, endDate);
             ExportToMongo(productSales);
             return productSales.Count();
         }
 
-        public int ExportProducSalesAfter(DateTime startDate, string directory)
+        public int ExportProductSalesAfter(DateTime startDate, string directory)
         {
-            directoryPath = directory;
+            this.directoryPath = directory;
             var productSales = reportGenerator.GetProductSalesAfter(startDate);
             ExportToMongo(productSales);
             return productSales.Count();
         }
 
-        public int ExportProducSalesBefore(DateTime endDate, string directory)
+        public int ExportProductSalesBefore(DateTime endDate, string directory)
         {
-            directoryPath = directory;
+            this.directoryPath = directory;
             var productSales = reportGenerator.GetProductSalesBefore(endDate);
             ExportToMongo(productSales);
             return productSales.Count();
         }
 
-        public int ExportProducSalesOn(DateTime date, string directory)
+        public int ExportProductSalesOn(DateTime date, string directory)
         {
-            directoryPath = directory;
+            this.directoryPath = directory;
             var productSales = reportGenerator.GetProductSalesOn(date);
             ExportToMongo(productSales);
             return productSales.Count();
@@ -73,7 +73,7 @@
             }
 
             var jsonCreator = new JsonCreator();
-            jsonCreator.WriteJsonFiles(documentsToExport, directoryPath);
+            jsonCreator.WriteJsonFiles(documentsToExport, this.directoryPath);
 
             var collection = this.supermarketsDb.GetCollection<BsonDocument>("SalesByProductReports");
             await collection.InsertManyAsync(documentsToExport);
